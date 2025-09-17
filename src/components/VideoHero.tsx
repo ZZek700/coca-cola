@@ -90,7 +90,7 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
         </div>
 
         {/* Tagline with Cultural Emphasis */}
-        <p className="text-2xl lg:text-3xl text-crown-white mb-6 font-light tracking-wide">
+        <p className="text-2xl lg:text-3xl text-crown-white 1-6 font-light tracking-wide">
           <span className="text-crown-primary font-semibold">{t('hero.tagline_part1')}</span> {t('hero.tagline_part2')}
         </p>
 

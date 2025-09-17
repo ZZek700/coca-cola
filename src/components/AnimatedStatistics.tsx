@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { TrendingUp, Users, Dumbbell, Award, Crown, Sparkles, MapPin, Heart } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { TrendingUp,  Dumbbell, Award,  Sparkles, UsersIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const AnimatedStatistics = () => {
@@ -90,7 +90,7 @@ const AnimatedStatistics = () => {
       glowColor: "emerald-400"
     },
     {
-      icon: Heart,
+      icon: UsersIcon,
       number: counts.trainers,
       suffix: "+",
       label: t("statistics.trainers_label"),
