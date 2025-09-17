@@ -35,7 +35,7 @@ const Hero = () => {
           <div className="inline-flex items-center justify-center w-24 h-24 mb-6 relative">
             <div className="absolute inset-0 bg-yellow-400 rounded-full opacity-20 animate-ping"></div>
             <img 
-              src="/api/placeholder/96/96" 
+              src="/CROWN_WHITE_LOGO.png" 
               alt="Crown Wellness Club"
               className="w-20 h-20 object-contain relative z-10"
             />

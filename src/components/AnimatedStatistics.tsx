@@ -127,7 +127,7 @@ const AnimatedStatistics = () => {
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent to-crown-primary"></div>
             <div className="flex items-center justify-center mx-8">
               <img 
-                src="/crown-logo copy.png" 
+                src="/CROWN_WHITE_LOGO.png" 
                 alt="Crown Wellness Club"
                 className="w-12 h-12 object-contain drop-shadow-lg filter brightness-110 hover:scale-110 transition-transform duration-300"
               />
@@ -176,7 +176,7 @@ const AnimatedStatistics = () => {
                     <div className={`relative p-4 bg-gradient-to-br ${stat.color} rounded-full group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden`}>
                       {/* Crown Logo Background */}
                       <img 
-                        src="/crown-logo copy.png" 
+                        src="/CROWN_WHITE_LOGO.png" 
                         alt="Crown logo background"
                         className="absolute inset-0 w-full h-full object-contain opacity-10 scale-150"
                       />
@@ -226,7 +226,7 @@ const AnimatedStatistics = () => {
             <div className="relative z-10 text-center">
               <div className="flex items-center justify-center mb-8">
                 <img 
-                  src="/crown-logo copy.png" 
+                  src="/CROWN_WHITE_LOGO.png" 
                   alt="Crown Wellness Club Logo"
                   className="w-16 h-16 object-contain drop-shadow-lg filter brightness-110"
                 />

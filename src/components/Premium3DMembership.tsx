@@ -160,7 +160,7 @@ const Premium3DMembership = () => {
           <div className="flex items-center justify-center mb-8">
             <div className="w-20 h-0.5 bg-gradient-to-r from-transparent to-crown-primary"></div>
             <img
-              src="/crown-logo copy.png"
+              src="/CROWN_WHITE_LOGO.png"
               alt="Crown Wellness Club Logo"
               className="w-12 h-12 object-contain drop-shadow-lg filter brightness-110 mx-6"
             />

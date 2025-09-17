@@ -264,7 +264,7 @@ const Contact = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between space-y-4 lg:space-y-0">
             <div className="flex items-center space-x-3">
               <img
-    src="/crown-logo copy.png"
+    src="/CROWN_WHITE_LOGO.png"
     alt="Crown Wellness Club Logo"
     className="w-8 h-8 object-contain"
   />

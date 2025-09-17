@@ -1,19 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { Crown, Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
+import { useLocation } from 'react-router-dom';
+//yhg
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const { t, i18n } = useTranslation();
+  const {pathname} = useLocation();
+
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
+      
+      // Only track sections when on home page
+      if (pathname === '/') {
+        const sections = ['services', 'membership', 'contact'];
+        const scrollPosition = window.scrollY + 150; // Offset for header height
+        
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const elementTop = rect.top + window.scrollY;
+            const elementBottom = elementTop + rect.height;
+            
+            if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+              setActiveSection(section);
+              break;
+            } else {
+              setActiveSection('');
+            }
+          }
+        }
+      } else {
+        setActiveSection('');
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [pathname]);
 
   const navItems = [
     {label: 'home', href: '/'},
@@ -29,6 +58,57 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const isActiveLink = (href: string) => {
+    if (href === '/') {
+      // Home is only active if we're on home AND there's no hash AND no active section
+      return pathname === '/' && !window.location.hash && !activeSection;
+    }
+    if (href.startsWith('/#')) {
+      const sectionId = href.substring(2); // Remove '/#' to get section id
+      // Check both URL hash and scroll-based active section
+      return pathname === '/' && (
+        window.location.hash === `#${sectionId}` || 
+        activeSection === sectionId
+      );
+    }
+    return pathname === href;
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // If it's a hash link and we're already on the home page, handle smooth scroll
+    if (href.startsWith('/#') && pathname === '/') {
+      e.preventDefault();
+      const targetId = href.substring(2); // Remove '/#' to get just the id
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Update URL hash without triggering navigation
+        window.history.pushState(null, '', `#${targetId}`);
+        setIsMobileMenuOpen(false);
+      }
+    } else if (href.startsWith('#')) {
+      // Handle direct hash links (without leading slash)
+      e.preventDefault();
+      const targetId = href.substring(1); // Remove '#' to get just the id
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Update URL hash without triggering navigation
+        window.history.pushState(null, '', `#${targetId}`);
+        setIsMobileMenuOpen(false);
+      }
+    }
+    // For regular links, let default behavior handle navigation
+  };
+
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${
       isScrolled 
@@ -41,7 +121,7 @@ const Header = () => {
           <a href="/" className="flex items-center space-x-3 group cursor-pointer">
             <div className="relative">
               <img 
-                src="/crown-logo copy.png" 
+                src="/CROWN_WHITE_LOGO.png" 
                 alt="Crown Wellness Club Logo"
                 className="w-10 h-10 object-contain group-hover:scale-110 transition-all duration-300 transform filter drop-shadow-lg"
               />
@@ -55,17 +135,29 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <a 
-                  href={item.href}
-                  className="text-crown-white hover:text-crown-primary transition-colors duration-300 text-lg font-medium tracking-wide relative group"
-                >
-                  {t(`nav.${item.label}`)}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-crown-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const isActive = isActiveLink(item.href);
+              return (
+                <li key={item.label}>
+                  <a 
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`transition-colors duration-300 text-lg font-medium tracking-wide relative group ${
+                      isActive 
+                        ? 'text-crown-primary' 
+                        : 'text-crown-white hover:text-crown-primary'
+                    }`}
+                  >
+                    {t(`nav.${item.label}`)}
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-crown-primary transition-all duration-300 ${
+                      isActive 
+                        ? 'w-full' 
+                        : 'w-0 group-hover:w-full'
+                    }`}></span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Language Toggle */}
@@ -106,16 +198,26 @@ const Header = () => {
           isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="pt-6 pb-4 space-y-4">
-            {navItems.map((item) => (
-              <a 
-                key={item.label}
-                href={item.href}
-                className="block text-crown-white hover:text-crown-primary transition-colors duration-300 text-lg font-medium tracking-wide"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t(`nav.${item.label}`)}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = isActiveLink(item.href);
+              return (
+                <a 
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => {
+                    handleNavClick(e, item.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`block transition-colors duration-300 text-lg font-medium tracking-wide ${
+                    isActive 
+                      ? 'text-crown-primary' 
+                      : 'text-crown-white hover:text-crown-primary'
+                  }`}
+                >
+                  {t(`nav.${item.label}`)}
+                </a>
+              );
+            })}
             <div className="flex items-center space-x-4 pt-4 border-t border-crown-primary/30">
               <button 
                 onClick={() => changeLanguage('az')}

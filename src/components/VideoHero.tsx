@@ -30,6 +30,18 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
     onToggleMute(!isMuted);
   };
 
+  const handleBookTour = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      // Update URL hash
+      window.history.pushState(null, '', '#contact');
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
@@ -100,7 +112,10 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
             <div className="absolute inset-0 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
           
-          <button className="group flex items-center space-x-4 text-crown-white border-2 border-crown-white/40 hover:border-crown-primary px-10 py-5 rounded-full font-semibold text-lg tracking-wide transition-all duration-500 hover:bg-crown-white/10 hover:scale-105 backdrop-blur-sm">
+          <button 
+            onClick={handleBookTour}
+            className="group flex items-center space-x-4 text-crown-white border-2 border-crown-white/40 hover:border-crown-primary px-10 py-5 rounded-full font-semibold text-lg tracking-wide transition-all duration-500 hover:bg-crown-white/10 hover:scale-105 backdrop-blur-sm"
+          >
             <Play className="w-6 h-6 group-hover:text-crown-primary transition-colors duration-300" />
             <span className="group-hover:text-crown-primary transition-colors duration-300">{t('hero.tour_button')}</span>
           </button>
