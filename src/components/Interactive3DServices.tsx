@@ -4,6 +4,7 @@ import {
   Play, X, ChevronRight, Sparkles, Crown 
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Logo from './Logo';
 
 const Interactive3DServices = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -160,7 +161,7 @@ const Interactive3DServices = () => {
               {service.featured && (
                 <div className="absolute -top-4 left-6 z-30">
                   <div className="bg-crown-primary text-crown-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                    <Crown className="w-4 h-4 inline mr-1" />
+                    <Logo variant='white' className="w-6 inline mr-1" />
                     CULTURALLY DESIGNED
                   </div>
                 </div>

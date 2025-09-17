@@ -109,7 +109,7 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8 mb-16 md:mb-20 px-4">
           <button className="group relative overflow-hidden bg-gradient-to-r from-crown-primary to-crown-primary text-crown-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-base sm:text-lg tracking-wide transition-all duration-500 hover:bg-crown-primary hover:scale-105 hover:shadow-xl hover:shadow-crown-primary/25 w-full sm:w-auto">
             <span className="relative z-10 flex items-center justify-center">
-              <Crown className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+              <Logo className="h-4 mr-2" />
               {t('hero.experience_button')}
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -125,7 +125,7 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute -bottom-5 left-1/2 transform -translate-x-1/2">
+        <div className="absolute -bottom-8 sm:-bottom-6 md:-bottom-5 left-1/2 transform -translate-x-1/2">
           <div className="flex flex-col items-center space-y-3">
             <span className="text-crown-white text-base tracking-widest font-light">
               {t('hero.scroll_indicator')}

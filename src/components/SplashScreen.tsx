@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Crown } from 'lucide-react'; // Crown ikonunu kullanmak için
+import Logo from './Logo';
 
 interface SplashScreenProps {
   onEnter: () => void;
@@ -37,7 +38,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onEnter }) => {
           className="group relative overflow-hidden bg-yellow-400 text-black px-10 py-5 rounded-full font-bold text-lg tracking-wide transition-all duration-300 hover:bg-yellow-300 hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/25"
         >
           <span className="relative z-10 flex items-center">
-            <Crown className="w-5 h-5 mr-3" />
+            <Logo className="h-4 mr-3 text-black" variant="black" />
             ENTER – The World of Wellness
           </span>
           <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>

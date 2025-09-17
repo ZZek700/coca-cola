@@ -1,17 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { TrendingUp,  Dumbbell, Award,  Sparkles, UsersIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import CountUp from 'react-countup';
 
 const AnimatedStatistics = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [counts, setCounts] = useState({
-    space: 0,
-    equipment: 0,
-    trainers: 0,
-    services: 0,
-    womenSpace: 0,
-    members: 0
-  });
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
@@ -20,6 +13,8 @@ const AnimatedStatistics = () => {
     equipment: 300,
     trainers: 50,
     services: 150,
+    womenSpace: 800,
+    members: 250
   };
 
   useEffect(() => {
@@ -29,86 +24,94 @@ const AnimatedStatistics = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    // Fallback: set visible after a delay to ensure content shows
+    const fallbackTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 1000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
-  useEffect(() => {
-    if (isVisible) {
-      const duration = 3000;
-      const steps = 60;
-      const stepDuration = duration / steps;
-
-      let step = 0;
-      const timer = setInterval(() => {
-        step++;
-        const progress = step / steps;
-        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-
-        setCounts({
-          space: Math.floor(finalCounts.space * easeOutCubic),
-          equipment: Math.floor(finalCounts.equipment * easeOutCubic),
-          trainers: Math.floor(finalCounts.trainers * easeOutCubic),
-          services: Math.floor(finalCounts.services * easeOutCubic),
-          womenSpace: Math.floor(finalCounts.womenSpace * easeOutCubic),
-          members: Math.floor(finalCounts.members * easeOutCubic)
-        });
-
-        if (step >= steps) {
-          clearInterval(timer);
-          setCounts(finalCounts);
-        }
-      }, stepDuration);
-
-      return () => clearInterval(timer);
-    }
-  }, [isVisible]);
 
   const stats = [
     {
       icon: TrendingUp,
-      number: counts.space,
+      number: finalCounts.space,
       suffix: "m²",
       label: t("statistics.space_label"),
       description: t("statistics.space_description"),
-      color: "from-blue-500 to-cyan-600",
-      glowColor: "blue-400"
+      colorClasses: "from-blue-500 to-cyan-600",
+      glowClasses: "blue-400",
+      borderGlowClasses: "hover:border-blue-400/40",
+      bgGlowClasses: "group-hover:from-blue-500/15 group-hover:to-cyan-600/15",
+      iconGlowClasses: "group-hover:bg-blue-400/30",
+      iconBgClasses: "from-blue-500 to-cyan-600",
+      textGradientClasses: "from-blue-500 to-cyan-600",
+      sparkleClasses: "text-blue-400",
+      borderClasses: "from-blue-500 to-cyan-600"
     },
     {
       icon: Dumbbell,
-      number: counts.equipment,
+      number: finalCounts.equipment,
       suffix: "+",
       label: t("statistics.equipment_label"),
       description: t("statistics.equipment_description"),
-      color: "from-emerald-500 to-teal-600",
-      glowColor: "emerald-400"
+      colorClasses: "from-emerald-500 to-teal-600",
+      glowClasses: "emerald-400",
+      borderGlowClasses: "hover:border-emerald-400/40",
+      bgGlowClasses: "group-hover:from-emerald-500/15 group-hover:to-teal-600/15",
+      iconGlowClasses: "group-hover:bg-emerald-400/30",
+      iconBgClasses: "from-emerald-500 to-teal-600",
+      textGradientClasses: "from-emerald-500 to-teal-600",
+      sparkleClasses: "text-emerald-400",
+      borderClasses: "from-emerald-500 to-teal-600"
     },
     {
       icon: UsersIcon,
-      number: counts.trainers,
+      number: finalCounts.trainers,
       suffix: "+",
       label: t("statistics.trainers_label"),
       description: t("statistics.trainers_description"),
-      color: "from-purple-500 to-indigo-600",
-      glowColor: "purple-400"
+      colorClasses: "from-purple-500 to-indigo-600",
+      glowClasses: "purple-400",
+      borderGlowClasses: "hover:border-purple-400/40",
+      bgGlowClasses: "group-hover:from-purple-500/15 group-hover:to-indigo-600/15",
+      iconGlowClasses: "group-hover:bg-purple-400/30",
+      iconBgClasses: "from-purple-500 to-indigo-600",
+      textGradientClasses: "from-purple-500 to-indigo-600",
+      sparkleClasses: "text-purple-400",
+      borderClasses: "from-purple-500 to-indigo-600"
     },
     {
       icon: Award,
-      number: counts.services,
+      number: finalCounts.services,
       suffix: "+",
       label: t("statistics.services_label"),
       description: t("statistics.services_description"),
-      color: "from-amber-500 to-orange-600",
-      glowColor: "amber-400"
+      colorClasses: "from-amber-500 to-orange-600",
+      glowClasses: "amber-400",
+      borderGlowClasses: "hover:border-amber-400/40",
+      bgGlowClasses: "group-hover:from-amber-500/15 group-hover:to-orange-600/15",
+      iconGlowClasses: "group-hover:bg-amber-400/30",
+      iconBgClasses: "from-amber-500 to-orange-600",
+      textGradientClasses: "from-amber-500 to-orange-600",
+      sparkleClasses: "text-amber-400",
+      borderClasses: "from-amber-500 to-orange-600"
     },
   ];
 
+  console.log('AnimatedStatistics rendering, isVisible:', isVisible);
+  
   return (
     <section ref={sectionRef} className="py-24 bg-crown-dark relative overflow-hidden">
       {/* Premium Background Pattern */}
@@ -134,16 +137,16 @@ const AnimatedStatistics = () => {
             </div>
             <div className="w-24 h-0.5 bg-gradient-to-l from-transparent to-crown-primary"></div>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-crown-white mb-6 md:mb-8 tracking-wide px-4">
+          <h2 className="text-6xl lg:text-7xl font-bold text-crown-white mb-8 tracking-wide">
             {t('statistics.section_title')} <span className="text-crown-primary">{t('statistics.section_title_highlight')}</span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light px-4">
+          <p className="text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light">
             {t('statistics.section_description')}
           </p>
         </div>
 
         {/* Animated Statistics Grid */}
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -152,28 +155,18 @@ const AnimatedStatistics = () => {
               }`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {/* Featured Badge for Women's Space */}
-              {stat.featured && (
-                <div className="relative mb-4">
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-rose-500 text-white px-4 py-1 rounded-full text-xs font-bold">
-                      CULTURALLY DESIGNED
-                    </div>
-                  </div>
-                </div>
-              )}
 
               {/* Stat Card */}
-              <div className={`relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-gray-800 rounded-3xl p-6 sm:p-8 md:p-10 hover:bg-gradient-to-br hover:from-gray-900/90 hover:to-black/90 hover:border-${stat.glowColor}/40 transition-all duration-700 group-hover:transform group-hover:scale-105 group-hover:rotate-x-3 group-hover:rotate-y-3 overflow-hidden`}>
+              <div className={`relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-gray-800 rounded-3xl p-10 hover:bg-gradient-to-br hover:from-gray-900/90 hover:to-black/90 ${stat.borderGlowClasses} transition-all duration-700 group-hover:transform group-hover:scale-105 group-hover:rotate-x-3 group-hover:rotate-y-3 overflow-hidden`}>
                 
                 {/* Background Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-15 transition-opacity duration-700`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${stat.colorClasses} opacity-0 ${stat.bgGlowClasses} transition-opacity duration-700`}></div>
                 
                 {/* Icon with Premium Effect */}
                 <div className="flex justify-center mb-8 relative z-10">
                   <div className="relative">
-                    <div className={`absolute inset-0 bg-${stat.glowColor} opacity-0 group-hover:opacity-30 rounded-full blur-xl animate-pulse-slow`}></div>
-                    <div className={`relative p-4 bg-gradient-to-br ${stat.color} rounded-full group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden`}>
+                    <div className={`absolute inset-0 bg-${stat.glowClasses} opacity-0 ${stat.iconGlowClasses} rounded-full blur-xl animate-pulse-slow`}></div>
+                    <div className={`relative p-4 bg-gradient-to-br ${stat.iconBgClasses} rounded-full group-hover:scale-110 group-hover:-translate-y-1 transition-transform duration-300 overflow-hidden`}>
                       {/* Crown Logo Background */}
                       <img 
                         src="/CROWN_WHITE_LOGO.png" 
@@ -186,30 +179,38 @@ const AnimatedStatistics = () => {
                 </div>
 
                 {/* Animated Number */}
-                <div className="mb-4 sm:mb-6 relative z-10">
-                  <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-2`}>
-                    {stat.number.toLocaleString()}
-                    <span className="text-yellow-400 ml-1 text-2xl sm:text-3xl md:text-4xl">
+                <div className="mb-6 relative z-10">
+                  <div className={`text-6xl lg:text-7xl font-bold bg-gradient-to-br ${stat.textGradientClasses} bg-clip-text text-transparent mb-2`}>
+                    <CountUp
+                      start={0}
+                      end={stat.number}
+                      duration={2.5}
+                      separator=","
+                      enableScrollSpy
+                      scrollSpyOnce
+                      scrollSpyDelay={200}
+                    />
+                    <span className="text-yellow-400 ml-1 text-4xl">
                       {stat.suffix}
                     </span>
                   </div>
                 </div>
 
                 {/* Label and Description */}
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 relative z-10">
+                <h3 className="text-2xl font-bold text-white mb-3 relative z-10">
                   {stat.label}
                 </h3>
-                <p className="text-gray-400 leading-relaxed relative z-10 text-sm sm:text-base">
+                <p className="text-gray-400 leading-relaxed relative z-10">
                   {stat.description}
                 </p>
 
                 {/* Decorative Elements */}
                 <div className="absolute top-6 right-6 opacity-20">
-                  <Sparkles className={`w-6 h-6 text-${stat.glowColor}`} />
+                  <Sparkles className={`w-6 h-6 ${stat.sparkleClasses}`} />
                 </div>
 
                 {/* Premium Border Glow */}
-                <div className={`absolute -inset-0.5 opacity-0 group-hover:opacity-40 transition-opacity duration-700 bg-gradient-to-br ${stat.color} rounded-3xl blur-2xl -z-10`}></div>
+                <div className={`absolute -inset-0.5 opacity-0 group-hover:opacity-40 transition-opacity duration-700 bg-gradient-to-br ${stat.borderClasses} rounded-3xl blur-2xl -z-10`}></div>
               </div>
             </div>
           ))}
@@ -231,13 +232,13 @@ const AnimatedStatistics = () => {
                   className="w-16 h-16 object-contain drop-shadow-lg filter brightness-110"
                 />
               </div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-crown-white mb-4 sm:mb-6 px-4">
+              <h3 className="text-5xl lg:text-6xl font-bold text-crown-white mb-6">
                 {t('statistics.achievement_title')} <span className="text-crown-primary">{t('statistics.achievement_highlight')}</span>
               </h3>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-4 sm:mb-6 font-light px-4">
+              <p className="text-3xl text-white mb-6 font-light">
                 {t('statistics.achievement_subtitle')}
               </p>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
+              <p className="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
                 {t('statistics.achievement_description')}
               </p>
             </div>

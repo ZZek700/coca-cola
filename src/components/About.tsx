@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Crown, Award, Users, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Logo from './Logo';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -69,7 +70,7 @@ const About = () => {
         }`}>
           <div className="flex items-center justify-center mb-6">
             <div className="w-16 h-0.5 bg-crown-primary"></div>
-            <Crown className="w-8 h-8 text-crown-primary mx-4" />
+            <Logo variant='white' className="w-12 text-crown-primary mx-4" />
             <div className="w-16 h-0.5 bg-crown-primary"></div>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-crown-white mb-4 sm:mb-6 tracking-wide px-4">
