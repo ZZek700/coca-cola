@@ -93,10 +93,6 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
         <p className="text-2xl lg:text-3xl text-crown-white mb-6 font-light tracking-wide">
           <span className="text-crown-primary font-semibold">{t('hero.tagline_part1')}</span> {t('hero.tagline_part2')}
         </p>
-        
-        <p className="text-lg lg:text-xl text-crown-white/80 mb-4 max-w-3xl mx-auto leading-relaxed">
-          {t('hero.description_part1')}
-        </p>
 
         <p className="text-base text-crown-white/70 mb-16 max-w-2xl mx-auto leading-relaxed">
           {t('hero.description_part2')}
