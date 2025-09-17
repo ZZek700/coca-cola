@@ -48,9 +48,10 @@ const Header = () => {
     {label: 'home', href: '/'},
     {label: 'about', href: '/about'},
     {label: 'services', href: '/#services'},
+    {label: 'gallery', href: '/gallery'},
     {label: 'trainers', href: '/trainers'},
     {label: 'membership', href: '/#membership'},
-    {label: 'contact', href: '/#contact'}
+    {label: 'contact', href: '/#contact'},
   ];
 
   const changeLanguage = (lng: string) => {

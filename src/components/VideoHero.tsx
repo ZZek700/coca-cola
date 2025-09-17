@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Play, ChevronDown, Crown, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Logo from './Logo';
+import { useNavigate } from 'react-router-dom';
 
 interface VideoHeroProps {
   isMuted: boolean;
@@ -10,6 +12,7 @@ interface VideoHeroProps {
 const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -28,6 +31,10 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
     // useEffect tarafından veya doğrudan video elementindeki muted={isMuted}
     // attribute'u tarafından güncellenecektir.
     onToggleMute(!isMuted);
+  };
+
+  const handleGoGallery = () => {
+    navigate('/gallery');
   };
 
   const handleBookTour = () => {
@@ -100,9 +107,9 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
 
         {/* Premium CTA Buttons */}
         <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8 mb-20">
-          <button className="group relative overflow-hidden bg-gradient-to-r from-crown-primary to-crown-primary text-crown-white px-10 py-5 rounded-full font-bold text-lg tracking-wide transition-all duration-500 hover:bg-crown-primary hover:scale-105 hover:shadow-xl hover:shadow-crown-primary/25">
+          <button onClick={handleGoGallery} className="group relative overflow-hidden bg-gradient-to-r from-crown-primary to-crown-primary text-crown-white px-10 py-5 rounded-full font-bold text-lg tracking-wide transition-all duration-500 hover:bg-crown-primary hover:scale-105 hover:shadow-xl hover:shadow-crown-primary/25">
             <span className="relative z-10 flex items-center">
-              <Crown className="w-5 h-5 mr-3" />
+              <Logo className="h-4 mr-3" />
               {t('hero.experience_button')}
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
