@@ -65,7 +65,7 @@ export default function HomePage() {
    return (
      <>
       {showSplash ? <SplashScreen onEnter={handleEnter} /> : (
-    <div className="min-h-screen bg-crown-dark text-crown-primary overflow-x-hidden">
+    <div className="min-h-screen bg-crown-dark text-crown-primary overflow-x-hidden w-full">
       <Header />
       <VideoHero isMuted={videoMuted} onToggleMute={handleToggleMute} />
       <Interactive3DServices />

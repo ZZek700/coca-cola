@@ -91,6 +91,10 @@
     "section_title_highlight": "EXCELLENCE",
     "section_description": "Choose your path to luxury wellness. Each membership is crafted to deliver exceptional value and exclusive experiences in Azerbaijan's premier destination.",
     "founding_offer": "Founding Members: Up to 25% OFF First 6 Months",
+    "billing_period": {
+      "monthly": "Monthly",
+      "annual": "Annual"
+    },
     "essential": {
       "name": "Essential",
       "subtitle": "Perfect Foundation",

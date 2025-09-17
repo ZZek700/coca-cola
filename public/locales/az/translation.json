@@ -91,6 +91,10 @@
     "section_title_highlight": "MÜKƏMMƏLLİYİ",
     "section_description": "Lüks sağlamlığa gedən yolunuzu seçin. Hər üzvlük Azərbaycanın premier təyinatında müstəsna dəyər və eksklüziv təcrübələr təqdim etmək üçün hazırlanıb.",
     "founding_offer": "Təsisçi Üzvlər: İlk 6 Ay üçün 25%-ə qədər ENDİRİM",
+    "billing_period": {
+      "monthly": "Aylıq",
+      "annual": "İllik"
+    },
     "essential": {
       "name": "Əsas",
       "subtitle": "Mükəmməl Əsas",

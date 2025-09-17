@@ -138,16 +138,16 @@ const Interactive3DServices = () => {
             <Sparkles className="w-8 h-8 text-crown-primary mx-6" />
             <div className="w-20 h-0.5 bg-gradient-to-l from-transparent to-crown-primary"></div>
           </div>
-          <h2 className="text-6xl lg:text-7xl font-bold text-crown-white mb-8 tracking-wide">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-crown-white mb-6 md:mb-8 tracking-wide px-4">
             {t('services.section_title')} <span className="text-crown-primary">{t('services.section_title_highlight')}</span>
           </h2>
-          <p className="text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light px-4">
             {t('services.section_description')}
           </p>
         </div>
 
         {/* 3D Interactive Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
           {services.map((service, index) => (
             <div
               key={index}
@@ -185,7 +185,7 @@ const Interactive3DServices = () => {
                 }`}>
                   
                   {/* Video/Image Placeholder */}
-                  <div className={`relative h-64 bg-gradient-to-br ${service.color} overflow-hidden`}>
+                  <div className={`relative h-48 sm:h-56 md:h-64 bg-gradient-to-br ${service.color} overflow-hidden`}>
                     <div className="absolute inset-0 bg-crown-dark/30"></div>
                     
                     {/* Zone Image */}
@@ -209,29 +209,29 @@ const Interactive3DServices = () => {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-8 bg-gray-800 flex flex-col h-full">
+                  <div className="p-4 sm:p-6 md:p-8 bg-gray-800 flex flex-col h-full">
                     <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold mb-2">
+                      <div className="flex-1">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
                           <span className="text-crown-primary">{service.titlePart1}</span>{' '}
                           <span className="text-crown-white">{service.titlePart2}</span>
                         </h3>
-                        <p className="text-crown-primary text-sm">{service.subtitle}</p>
+                        <p className="text-crown-primary text-xs sm:text-sm">{service.subtitle}</p>
                       </div>
-                      <ChevronRight className={`w-6 h-6 text-crown-primary transition-transform duration-300 ${
+                      <ChevronRight className={`w-5 h-5 sm:w-6 sm:h-6 text-crown-primary transition-transform duration-300 flex-shrink-0 ${
                         expandedService === index ? 'rotate-90' : ''
                       }`} />
                     </div>
 
                     {/* Flexible content area */}
                     <div className="flex-grow flex flex-col">
-                      <p className="text-crown-white leading-relaxed mb-6">{service.description}</p>
+                      <p className="text-crown-white leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">{service.description}</p>
 
                       {/* Stats */}
-                      <div className="flex justify-between mb-6 text-center">
+                      <div className="flex justify-between mb-4 sm:mb-6 text-center">
                         {Object.entries(service.stats).map(([key, value], statIndex) => (
                           <div key={statIndex} className="flex-1">
-                            <div className="text-crown-primary font-bold text-xl">{value}</div>
+                            <div className="text-crown-primary font-bold text-lg sm:text-xl">{value}</div>
                             <div className="text-crown-white text-xs uppercase tracking-wider">{key}</div>
                           </div>
                         ))}
@@ -261,7 +261,7 @@ const Interactive3DServices = () => {
                     </div>
 
                     {/* Action Button */}
-                    <button className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-500 ${
+                    <button className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold transition-all duration-500 text-sm sm:text-base ${
                       expandedService === index
                         ? 'bg-crown-primary text-crown-white shadow-lg transform scale-105 hover:bg-crown-primary'
                         : 'bg-crown-primary text-crown-white hover:bg-crown-primary'

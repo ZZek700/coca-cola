@@ -15,6 +15,7 @@ const Premium3DMembership = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCard, setSelectedCard] = useState<number | null>(1); // Premium selected by default
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
@@ -40,15 +41,23 @@ const Premium3DMembership = () => {
       icon: Star,
       name: t("membership.essential.name"),
       subtitle: t("membership.essential.subtitle"),
-      price: t("membership.essential.price"),
-      originalPrice: t("membership.essential.original_price"),
-      period: "monthly",
-      savings: t("membership.essential.savings"),
+      pricing: {
+        monthly: {
+          price: "₼299",
+          originalPrice: "₼399",
+          savings: "25% OFF"
+        },
+        annual: {
+          price: "₼2,990",
+          originalPrice: "₼3,990",
+          savings: "25% OFF"
+        }
+      },
       color: "from-slate-600 via-gray-700 to-slate-800",
       borderColor: "border-gray-500",
       glowColor: "gray-400",
       features: [
-        "Access to Main Fitness Zone", // Bu feature'ları da çevirebilirsiniz
+        "Access to Main Fitness Zone",
         "Group Fitness Classes",
         "Standard Locker Room",
         "Member Mobile App",
@@ -63,10 +72,18 @@ const Premium3DMembership = () => {
       icon: Diamond,
       name: t("membership.premium.name"),
       subtitle: t("membership.premium.subtitle"),
-      price: t("membership.premium.price"),
-      originalPrice: t("membership.premium.original_price"),
-      period: "monthly",
-      savings: t("membership.premium.savings"),
+      pricing: {
+        monthly: {
+          price: "₼499",
+          originalPrice: "₼699",
+          savings: "29% OFF"
+        },
+        annual: {
+          price: "₼4,990",
+          originalPrice: "₼6,990",
+          savings: "29% OFF"
+        }
+      },
       popular: true,
       color: "from-blue-600 via-purple-600 to-indigo-700",
       borderColor: "border-blue-400",
@@ -88,15 +105,23 @@ const Premium3DMembership = () => {
       icon: Crown,
       name: t("membership.royal.name"),
       subtitle: t("membership.royal.subtitle"),
-      price: t("membership.royal.price"),
-      originalPrice: t("membership.royal.original_price"),
-      period: "monthly",
-      savings: t("membership.royal.savings"),
+      pricing: {
+        monthly: {
+          price: "₼799",
+          originalPrice: "₼1,199",
+          savings: "33% OFF"
+        },
+        annual: {
+          price: "₼7,990",
+          originalPrice: "₼11,990",
+          savings: "33% OFF"
+        }
+      },
       color: "from-yellow-500 via-amber-600 to-yellow-700",
       borderColor: "border-yellow-400",
       glowColor: "yellow-400",
       features: [
-        "All Premium Benefits", // Bu feature'ları da çevirebilirsiniz
+        "All Premium Benefits",
         "Unlimited Personal Training",
         "Private Training Sessions Available",
         "VIP Spa Treatment Suite",
@@ -114,10 +139,18 @@ const Premium3DMembership = () => {
       icon: Users2,
       name: t("membership.womens.name"),
       subtitle: t("membership.womens.subtitle"),
-      price: t("membership.womens.price"),
-      originalPrice: t("membership.womens.original_price"),
-      period: "monthly",
-      savings: t("membership.womens.savings"),
+      pricing: {
+        monthly: {
+          price: "₼399",
+          originalPrice: "₼549",
+          savings: "27% OFF"
+        },
+        annual: {
+          price: "₼3,990",
+          originalPrice: "₼5,490",
+          savings: "27% OFF"
+        }
+      },
       color: "from-rose-600 via-pink-600 to-rose-700",
       borderColor: "border-rose-400",
       glowColor: "rose-400",
@@ -166,13 +199,13 @@ const Premium3DMembership = () => {
             />
             <div className="w-20 h-0.5 bg-gradient-to-l from-transparent to-crown-primary"></div>
           </div>
-          <h2 className="text-6xl lg:text-7xl font-bold text-crown-white mb-8 tracking-wide">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-crown-white mb-6 md:mb-8 tracking-wide px-4">
             {t("membership.section_title")}{" "}
             <span className="text-crown-primary">
               {t("membership.section_title_highlight")}
             </span>
           </h2>
-          <p className="text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light mb-6">
+          <p className="text-lg sm:text-xl md:text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light mb-6 px-4">
             {t("membership.section_description")}
           </p>
 
@@ -185,8 +218,40 @@ const Premium3DMembership = () => {
           </div>
         </div>
 
+        {/* Billing Period Segmented Control */}
+        <div className={`mb-16 transition-all duration-1000 delay-300 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <div className="flex justify-center px-4">
+            <div className="bg-gray-800 border border-gray-700 rounded-2xl p-1 backdrop-blur-sm">
+              <div className="flex">
+                <button
+                  onClick={() => setBillingPeriod('monthly')}
+                  className={`px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base ${
+                    billingPeriod === 'monthly'
+                      ? 'bg-crown-primary text-crown-white shadow-lg'
+                      : 'text-crown-white hover:text-crown-primary'
+                  }`}
+                >
+                  {t("membership.billing_period.monthly")}
+                </button>
+                <button
+                  onClick={() => setBillingPeriod('annual')}
+                  className={`px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base ${
+                    billingPeriod === 'annual'
+                      ? 'bg-crown-primary text-crown-white shadow-lg'
+                      : 'text-crown-white hover:text-crown-primary'
+                  }`}
+                >
+                  {t("membership.billing_period.annual")}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* 3D Membership Cards */}
-        <div className="grid lg:grid-cols-4 gap-8 max-w-8xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-8xl mx-auto px-4">
           {membershipPlans.map((plan, index) => (
             <div
               key={index}
@@ -237,12 +302,12 @@ const Premium3DMembership = () => {
                 >
                   {/* Card Header with Gradient */}
                   <div
-                    className={`relative p-8 bg-gradient-to-br ${plan.color} text-crown-white`}
+                    className={`relative p-4 sm:p-6 md:p-8 bg-gradient-to-br ${plan.color} text-crown-white`}
                   >
                     {/* Savings Badge */}
                     <div className="absolute top-4 right-4">
                       <div className="bg-crown-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold">
-                        {plan.savings}
+                        {plan.pricing[billingPeriod].savings}
                       </div>
                     </div>
 
@@ -253,21 +318,21 @@ const Premium3DMembership = () => {
                       )}
                     </div>
 
-                    <h3 className="text-3xl font-bold mb-2">{plan.name}</h3>
-                    <p className="text-crown-white/90 text-sm mb-6 font-light">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">{plan.name}</h3>
+                    <p className="text-crown-white/90 text-xs sm:text-sm mb-4 sm:mb-6 font-light">
                       {plan.subtitle}
                     </p>
 
                     {/* Pricing */}
                     <div className="mb-4">
-                      <div className="flex items-baseline space-x-3">
-                        <span className="text-5xl font-bold">{plan.price}</span>
+                      <div className="flex items-baseline space-x-2 sm:space-x-3">
+                        <span className="text-3xl sm:text-4xl md:text-5xl font-bold">{plan.pricing[billingPeriod].price}</span>
                         <div className="flex flex-col">
-                          <span className="text-crown-white/60 text-sm line-through">
-                            {plan.originalPrice}
+                          <span className="text-crown-white/60 text-xs sm:text-sm line-through">
+                            {plan.pricing[billingPeriod].originalPrice}
                           </span>
-                          <span className="text-crown-white/80 text-sm">
-                            /{plan.period}
+                          <span className="text-crown-white/80 text-xs sm:text-sm">
+                            /{billingPeriod === 'monthly' ? 'month' : 'year'}
                           </span>
                         </div>
                       </div>
@@ -279,17 +344,17 @@ const Premium3DMembership = () => {
                   </div>
 
                   {/* Card Body */}
-                  <div className="p-8 flex-1 flex flex-col">
+                  <div className="p-4 sm:p-6 md:p-8 flex-1 flex flex-col">
                     {/* Features List */}
-                    <div className="flex-1 mb-8">
-                      <ul className="space-y-4">
+                    <div className="flex-1 mb-6 sm:mb-8">
+                      <ul className="space-y-3 sm:space-y-4">
                         {plan.features.map((feature, featureIndex) => (
                           <li
                             key={featureIndex}
-                            className="flex items-start text-crown-white text-sm"
+                            className="flex items-start text-crown-white text-xs sm:text-sm"
                           >
                             <Check
-                              className={`w-4 h-4 text-crown-primary mr-3 mt-0.5 flex-shrink-0`}
+                              className={`w-3 h-3 sm:w-4 sm:h-4 text-crown-primary mr-2 sm:mr-3 mt-0.5 flex-shrink-0`}
                             />
                             <span>{feature}</span>
                           </li>
@@ -299,7 +364,7 @@ const Premium3DMembership = () => {
 
                     {/* CTA Button */}
                     <button
-                      className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-500 transform ${
+                      className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold text-white transition-all duration-500 transform text-sm sm:text-base ${
                         selectedCard === index
                           ? "bg-gradient-to-r from-crown-primary to-crown-primary shadow-xl shadow-crown-primary/30 scale-105"
                           : hoveredCard === index

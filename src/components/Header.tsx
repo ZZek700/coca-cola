@@ -51,7 +51,7 @@ const Header = () => {
     {label: 'gallery', href: '/gallery'},
     {label: 'trainers', href: '/trainers'},
     {label: 'membership', href: '/#membership'},
-    {label: 'contact', href: '/#contact'},
+    {label: 'contact', href: '/#contact'},    
   ];
 
   const changeLanguage = (lng: string) => {
@@ -135,7 +135,7 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center space-x-8">
+          <ul className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => {
               const isActive = isActiveLink(item.href);
               return (
@@ -143,7 +143,7 @@ const Header = () => {
                   <a 
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className={`transition-colors duration-300 text-lg font-medium tracking-wide relative group ${
+                    className={`transition-colors duration-300 text-base font-medium tracking-wide relative group ${
                       isActive 
                         ? 'text-crown-primary' 
                         : 'text-crown-white hover:text-crown-primary'
@@ -162,23 +162,23 @@ const Header = () => {
           </ul>
 
           {/* Language Toggle */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3">
             <button 
-              className={`text-crown-white hover:text-crown-primary transition-colors duration-300 text-lg font-medium ${i18n.language === 'az' ? 'text-crown-primary' : ''}`}
+              className={`text-crown-white hover:text-crown-primary transition-colors duration-300 text-base font-medium ${i18n.language === 'az' ? 'text-crown-primary' : ''}`}
               onClick={() => changeLanguage('az')}
             >
               AZ
             </button>
             <span className="text-crown-complementary">|</span>
             <button 
-              className={`text-crown-white hover:text-crown-primary transition-colors duration-300 text-lg font-medium ${i18n.language === 'en' ? 'text-crown-primary' : ''}`}
+              className={`text-crown-white hover:text-crown-primary transition-colors duration-300 text-base font-medium ${i18n.language === 'en' ? 'text-crown-primary' : ''}`}
               onClick={() => changeLanguage('en')}
             >
               EN
             </button>
             <span className="text-crown-complementary">|</span>
             <button 
-              className={`text-crown-white hover:text-crown-primary transition-colors duration-300 text-lg font-medium ${i18n.language === 'ru' ? 'text-crown-primary' : ''}`}
+              className={`text-crown-white hover:text-crown-primary transition-colors duration-300 text-base font-medium ${i18n.language === 'ru' ? 'text-crown-primary' : ''}`}
               onClick={() => changeLanguage('ru')}
             >
               RU
@@ -209,7 +209,7 @@ const Header = () => {
                     handleNavClick(e, item.href);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`block transition-colors duration-300 text-lg font-medium tracking-wide ${
+                  className={`block transition-colors duration-300 text-base font-medium tracking-wide ${
                     isActive 
                       ? 'text-crown-primary' 
                       : 'text-crown-white hover:text-crown-primary'

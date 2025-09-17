@@ -88,28 +88,28 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}>
         {/* Main Heading with Animation */}
-        <div className="mb-8 text-center">
+        <div className="mb-6 md:mb-8 text-center">
           <img
             src="/Asset 6.svg"
             alt="Crown Wellness Club"
-            className="w-auto h-48 lg:h-64 mx-auto drop-shadow-2xl filter brightness-110 animate-shine"
+            className="w-auto h-32 sm:h-40 md:h-48 lg:h-64 mx-auto drop-shadow-2xl filter brightness-110 animate-shine"
           />
         </div>
 
         {/* Tagline with Cultural Emphasis */}
-        <p className="text-2xl lg:text-3xl text-crown-white 1-6 font-light tracking-wide">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-crown-white mb-4 md:mb-6 font-light tracking-wide px-4">
           <span className="text-crown-primary font-semibold">{t('hero.tagline_part1')}</span> {t('hero.tagline_part2')}
         </p>
 
-        <p className="text-base text-crown-white/70 mb-16 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-base text-crown-white/70 mb-12 md:mb-16 max-w-2xl mx-auto leading-relaxed px-4">
           {t('hero.description_part2')}
         </p>
 
         {/* Premium CTA Buttons */}
-        <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8 mb-20">
-          <button onClick={handleGoGallery} className="group relative overflow-hidden bg-gradient-to-r from-crown-primary to-crown-primary text-crown-white px-10 py-5 rounded-full font-bold text-lg tracking-wide transition-all duration-500 hover:bg-crown-primary hover:scale-105 hover:shadow-xl hover:shadow-crown-primary/25">
-            <span className="relative z-10 flex items-center">
-              <Logo className="h-4 mr-3" />
+        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8 mb-16 md:mb-20 px-4">
+          <button className="group relative overflow-hidden bg-gradient-to-r from-crown-primary to-crown-primary text-crown-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-base sm:text-lg tracking-wide transition-all duration-500 hover:bg-crown-primary hover:scale-105 hover:shadow-xl hover:shadow-crown-primary/25 w-full sm:w-auto">
+            <span className="relative z-10 flex items-center justify-center">
+              <Crown className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
               {t('hero.experience_button')}
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -117,9 +117,9 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
           
           <button 
             onClick={handleBookTour}
-            className="group flex items-center space-x-4 text-crown-white border-2 border-crown-white/40 hover:border-crown-primary px-10 py-5 rounded-full font-semibold text-lg tracking-wide transition-all duration-500 hover:bg-crown-white/10 hover:scale-105 backdrop-blur-sm"
+            className="group flex items-center justify-center space-x-3 sm:space-x-4 text-crown-white border-2 border-crown-white/40 hover:border-crown-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-semibold text-base sm:text-lg tracking-wide transition-all duration-500 hover:bg-crown-white/10 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
           >
-            <Play className="w-6 h-6 group-hover:text-crown-primary transition-colors duration-300" />
+            <Play className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-crown-primary transition-colors duration-300" />
             <span className="group-hover:text-crown-primary transition-colors duration-300">{t('hero.tour_button')}</span>
           </button>
         </div>

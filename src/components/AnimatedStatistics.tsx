@@ -134,16 +134,16 @@ const AnimatedStatistics = () => {
             </div>
             <div className="w-24 h-0.5 bg-gradient-to-l from-transparent to-crown-primary"></div>
           </div>
-          <h2 className="text-6xl lg:text-7xl font-bold text-crown-white mb-8 tracking-wide">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-crown-white mb-6 md:mb-8 tracking-wide px-4">
             {t('statistics.section_title')} <span className="text-crown-primary">{t('statistics.section_title_highlight')}</span>
           </h2>
-          <p className="text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light px-4">
             {t('statistics.section_description')}
           </p>
         </div>
 
         {/* Animated Statistics Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -164,7 +164,7 @@ const AnimatedStatistics = () => {
               )}
 
               {/* Stat Card */}
-              <div className={`relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-gray-800 rounded-3xl p-10 hover:bg-gradient-to-br hover:from-gray-900/90 hover:to-black/90 hover:border-${stat.glowColor}/40 transition-all duration-700 group-hover:transform group-hover:scale-105 group-hover:rotate-x-3 group-hover:rotate-y-3 overflow-hidden`}>
+              <div className={`relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-gray-800 rounded-3xl p-6 sm:p-8 md:p-10 hover:bg-gradient-to-br hover:from-gray-900/90 hover:to-black/90 hover:border-${stat.glowColor}/40 transition-all duration-700 group-hover:transform group-hover:scale-105 group-hover:rotate-x-3 group-hover:rotate-y-3 overflow-hidden`}>
                 
                 {/* Background Glow */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-15 transition-opacity duration-700`}></div>
@@ -186,20 +186,20 @@ const AnimatedStatistics = () => {
                 </div>
 
                 {/* Animated Number */}
-                <div className="mb-6 relative z-10">
-                  <div className={`text-6xl lg:text-7xl font-bold bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-2`}>
+                <div className="mb-4 sm:mb-6 relative z-10">
+                  <div className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-2`}>
                     {stat.number.toLocaleString()}
-                    <span className="text-yellow-400 ml-1 text-4xl">
+                    <span className="text-yellow-400 ml-1 text-2xl sm:text-3xl md:text-4xl">
                       {stat.suffix}
                     </span>
                   </div>
                 </div>
 
                 {/* Label and Description */}
-                <h3 className="text-2xl font-bold text-white mb-3 relative z-10">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 relative z-10">
                   {stat.label}
                 </h3>
-                <p className="text-gray-400 leading-relaxed relative z-10">
+                <p className="text-gray-400 leading-relaxed relative z-10 text-sm sm:text-base">
                   {stat.description}
                 </p>
 
@@ -231,13 +231,13 @@ const AnimatedStatistics = () => {
                   className="w-16 h-16 object-contain drop-shadow-lg filter brightness-110"
                 />
               </div>
-              <h3 className="text-5xl lg:text-6xl font-bold text-crown-white mb-6">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-crown-white mb-4 sm:mb-6 px-4">
                 {t('statistics.achievement_title')} <span className="text-crown-primary">{t('statistics.achievement_highlight')}</span>
               </h3>
-              <p className="text-3xl text-white mb-6 font-light">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-4 sm:mb-6 font-light px-4">
                 {t('statistics.achievement_subtitle')}
               </p>
-              <p className="text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
                 {t('statistics.achievement_description')}
               </p>
             </div>

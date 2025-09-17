@@ -90,33 +90,33 @@ const Contact = () => {
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-5xl lg:text-6xl font-bold text-crown-white mb-6 tracking-wide">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-crown-white mb-4 sm:mb-6 tracking-wide px-4">
             {t('contact.section_title')} <span className="text-crown-primary">{t('contact.section_title_highlight')}</span>
           </h2>
-          <p className="text-xl text-crown-white max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-crown-white max-w-3xl mx-auto leading-relaxed px-4">
             {t('contact.section_description')}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto px-4">
           {/* Contact Information */}
           <div className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
           }`}>
-            <h3 className="text-3xl font-bold text-crown-primary mb-8">{t('contact.contact_info')}</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-crown-primary mb-6 sm:mb-8">{t('contact.contact_info')}</h3>
             
-            <div className="grid sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 mb-12">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
               {contactInfo.map((info, index) => (
                 <div key={index} className="group">
-                  <div className="bg-gray-800 border border-gray-700 rounded-xl p-6 hover:bg-gray-700 hover:border-crown-dark-red/30 transition-all duration-300 group-hover:transform group-hover:scale-105 shadow-lg">
-                    <div className="flex items-start space-x-4">
-                      <div className={`p-3 bg-crown-primary rounded-lg group-hover:bg-crown-primary transition-colors duration-300`}>
-                        <info.icon className="w-6 h-6 text-crown-white" />
+                  <div className="bg-gray-800 border border-gray-700 rounded-xl p-4 sm:p-6 hover:bg-gray-700 hover:border-crown-dark-red/30 transition-all duration-300 group-hover:transform group-hover:scale-105 shadow-lg">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className={`p-2 sm:p-3 bg-crown-primary rounded-lg group-hover:bg-crown-primary transition-colors duration-300 flex-shrink-0`}>
+                        <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-crown-white" />
                       </div>
-                      <div>
-                        <h4 className="text-crown-white font-semibold mb-2">{info.title}</h4>
+                      <div className="flex-1">
+                        <h4 className="text-crown-white font-semibold mb-2 text-sm sm:text-base">{info.title}</h4>
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className={`text-crown-complementary text-sm ${detailIndex === 0 ? 'font-medium' : ''}`}>
+                          <p key={detailIndex} className={`text-crown-complementary text-xs sm:text-sm ${detailIndex === 0 ? 'font-medium' : ''}`}>
                             {detail}
                           </p>
                         ))}
@@ -152,11 +152,11 @@ const Contact = () => {
           <div className={`transition-all duration-1000 delay-400 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
-            <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm shadow-xl">
-              <h3 className="text-3xl font-bold text-crown-primary mb-8">{t('contact.form_title')}</h3>
+            <div className="bg-gray-800 border border-gray-700 rounded-2xl p-6 sm:p-8 backdrop-blur-sm shadow-xl">
+              <h3 className="text-2xl sm:text-3xl font-bold text-crown-primary mb-6 sm:mb-8">{t('contact.form_title')}</h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="name" className="block text-crown-white text-sm font-medium mb-2">
                       {t('contact.full_name')} {t('contact.required')}
