@@ -1,0 +1,193 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "trainers": "Trainers",
+    "membership": "Membership",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title_part1": "CROWN",
+    "title_part2": "WELLNESS CLUB",
+    "tagline_part1": "First interactive fitness in Azerbaijan",
+    "tagline_part2": "Luxury Wellness Experience",
+    "description_part1": "5000m² of Unparalleled Luxury in the Heart of Baku",
+    "description_part2": "Where tradition meets innovation. Discover premium fitness with complete cultural sensitivity, including dedicated women's facilities designed for privacy and comfort.",
+    "experience_button": "Experience Crown",
+    "tour_button": "Book a Tour",
+    "scroll_indicator": "DISCOVER LUXURY BELOW"
+  },
+  "about": {
+    "section_title_part1": "THE",
+    "section_title_part2": "CROWN",
+    "section_title_part3": "DIFFERENCE",
+    "section_description": "Where Azerbaijani hospitality meets world-class wellness. Experience the future of fitness in a space designed for those who demand excellence.",
+    "redefining_title_part1": "Redefining Wellness in",
+    "redefining_title_part2": "Baku",
+    "redefining_text1": "Crown Wellness Club stands as First interactive fitness in Azerbaijan truly luxury fitness destination. We understand the importance of cultural sensitivity while delivering an uncompromising premium experience.",
+    "redefining_text2": "Our 5000m² facility features dedicated spaces that respect local values, including private women's training areas, while offering the latest in international fitness and wellness technology.",
+    "cultural_title": "Cultural Respect & Privacy",
+    "cultural_description": "Dedicated women's training facilities with complete privacy, ensuring comfort and cultural consideration for all our members.",
+    "feature1_title": "First in Azerbaijan",
+    "feature1_description": "First interactive fitness, luxury wellness in the heart of Baku",
+    "feature2_title": "Premium Standards",
+    "feature2_description": "International quality meets local cultural values",
+    "feature3_title": "Exclusive Community",
+    "feature3_description": "Join Baku's most discerning fitness enthusiasts",
+    "feature4_title": "Prime Location",
+    "feature4_description": "Strategically located for maximum convenience"
+  },
+  "services": {
+    "section_title": "PREMIUM",
+    "section_title_highlight": "EXPERIENCES",
+    "section_description": "Six distinct zones of luxury, each crafted to deliver world-class experiences while honoring Azerbaijan's cultural values.",
+    "cultural_banner_title": "Cultural Excellence &",
+    "cultural_banner_highlight": "Privacy",
+    "cultural_banner_description": "Our women's facilities span 800m² of completely private space, designed with deep respect for Azerbaijan's cultural values. Featuring dedicated female trainers, private changing areas, and women-only class schedules, we ensure comfort and modesty without compromising luxury.",
+    "fitness_zone": {
+      "title_part1": "Fitness",
+      "title_part2": "Zone",
+      "subtitle": "5 Premium Studios",
+      "description": "State-of-the-art equipment from leading international brands with dedicated spaces for every fitness discipline."
+    },
+    "spa_zone": {
+      "title_part1": "Spa",
+      "title_part2": "Zone",
+      "subtitle": "Ultimate Recovery",
+      "description": "Premium wellness treatments in a serene environment designed for complete rejuvenation and cultural comfort."
+    },
+    "beauty_zone": {
+      "title_part1": "Beauty",
+      "title_part2": "Zone",
+      "subtitle": "Aesthetic Excellence",
+      "description": "Professional beauty services with luxury finishes, featuring premium brands and expert stylists."
+    },
+    "womens_zone": {
+      "title_part1": "Women's",
+      "title_part2": "Zone",
+      "subtitle": "Private & Exclusive",
+      "description": "Exclusive 800m² space designed with complete privacy and cultural consideration for women's comfort and modesty."
+    },
+    "fitbar": {
+      "title_part1": "Fitbar",
+      "title_part2": "& Restaurant",
+      "subtitle": "Nutrition Hub",
+      "description": "Premium nutrition center with expert-crafted meals and supplements to fuel your wellness journey."
+    },
+    "wellness_shop": {
+      "title_part1": "Wellness",
+      "title_part2": "Shop",
+      "subtitle": "Premium Retail",
+      "description": "Curated selection of premium wellness and fitness products from international luxury brands."
+    },
+    "book_experience": "Book Experience",
+    "learn_more": "Learn More",
+    "featured_amenities": "Featured Amenities"
+  },
+  "membership": {
+    "section_title": "MEMBERSHIP",
+    "section_title_highlight": "EXCELLENCE",
+    "section_description": "Choose your path to luxury wellness. Each membership is crafted to deliver exceptional value and exclusive experiences in Azerbaijan's premier destination.",
+    "founding_offer": "Founding Members: Up to 25% OFF First 6 Months",
+    "essential": {
+      "name": "Essential",
+      "subtitle": "Perfect Foundation",
+      "price": "₼299",
+      "original_price": "₼399",
+      "savings": "25% OFF",
+      "description": "Premium foundation for your wellness journey in Azerbaijan's most exclusive club"
+    },
+    "premium": {
+      "name": "Premium",
+      "subtitle": "Most Chosen",
+      "price": "₼599",
+      "original_price": "₼799",
+      "savings": "25% OFF",
+      "description": "Complete luxury wellness experience with premium amenities and expert guidance"
+    },
+    "royal": {
+      "name": "Royal",
+      "subtitle": "Ultimate Luxury",
+      "price": "₼999",
+      "original_price": "₼1299",
+      "savings": "23% OFF",
+      "description": "The pinnacle of luxury wellness with exclusive privileges and VIP treatment"
+    },
+    "womens": {
+      "name": "Women's Sanctuary",
+      "subtitle": "Privacy & Cultural Respect",
+      "price": "₼699",
+      "original_price": "₼899",
+      "savings": "22% OFF",
+      "description": "Designed exclusively for women with complete privacy, cultural sensitivity, and luxury amenities"
+    },
+    "choose_plan": "Choose",
+    "selected_proceed": "Selected - Proceed",
+    "guarantee_title": "Founding Member",
+    "guarantee_highlight": "Exclusive Benefits",
+    "guarantee_text": "Join as a founding member of First interactive fitness in Azerbaijan luxury wellness club and enjoy exclusive benefits, priority access, and the prestige of being among the first to experience Crown excellence.",
+    "claim_status": "Claim Founding Member Status",
+    "most_popular": "MOST POPULAR",
+    "culturally_designed": "CULTURALLY DESIGNED",
+    "vip_experience": "VIP EXPERIENCE"
+  },
+  "statistics": {
+    "section_title": "IMPRESSIVE",
+    "section_title_highlight": "SCALE",
+    "section_description": "First interactive fitness in Azerbaijan luxury wellness club sets unprecedented standards with world-class facilities and cultural excellence.",
+    "space_label": "Premium Space",
+    "space_description": "Luxury wellness facility",
+    "equipment_label": "Premium Equipment",
+    "equipment_description": "International brands",
+    "trainers_label": "Expert Professionals",
+    "trainers_description": "Certified specialists",
+    "services_label": "Luxury Services",
+    "services_description": "Comprehensive wellness",
+    "achievement_title": "First interactive fitness in",
+    "achievement_highlight": "Azerbaijan",
+    "achievement_subtitle": "Luxury Wellness Destination",
+    "achievement_description": "Pioneering the future of premium fitness and wellness in Baku with unprecedented luxury, cultural sensitivity, and world-class amenities. Setting new standards that honor both international excellence and local values."
+  },
+  "contact": {
+    "section_title": "GET IN",
+    "section_title_highlight": "TOUCH",
+    "section_description": "Ready to begin your luxury wellness journey? Contact us today and discover what makes Crown Wellness Club Azerbaijan's premier destination.",
+    "contact_info": "Contact Information",
+    "visit_title": "Visit Us",
+    "call_title": "Call Us",
+    "email_title": "Email Us",
+    "hours_title": "Operating Hours",
+    "visit_details": ["Baku, Azerbaijan", "Premium Location", "Easy Parking"],
+    "call_details": ["+994 XX XXX XX XX", "Available 6AM - 11PM", "7 Days a Week"],
+    "email_details": ["info@crownwellness.az", "Quick Response", "Professional Support"],
+    "hours_details": ["Mon-Sun: 6:00 - 23:00", "Public Holidays: 8:00 - 20:00", "Always Here for You"],
+    "follow_journey": "Follow Our Journey",
+    "social_description": "Stay updated with our latest events, classes, and wellness tips.",
+    "form_title": "Start Your Journey",
+    "full_name": "Full Name",
+    "full_name_placeholder": "Your full name",
+    "email_address": "Email Address",
+    "email_placeholder": "your.email@example.com",
+    "phone_number": "Phone Number",
+    "phone_placeholder": "+994 XX XXX XX XX",
+    "interested_in": "Interested in",
+    "select_membership": "Select membership",
+    "essential_option": "Essential",
+    "premium_option": "Premium",
+    "royal_option": "Royal",
+    "womens_option": "Women's Exclusive",
+    "tour_option": "Just a tour",
+    "message": "Message",
+    "message_placeholder": "Tell us about your fitness goals or any questions you have...",
+    "send_message": "Send Message",
+    "privacy_notice": "We respect your privacy and will never share your information. Expect a response within 24 hours.",
+    "footer_text": "© 2025 Crown Wellness Club. All rights reserved. First interactive fitness in Azerbaijan luxury wellness destination.",
+    "footer_links": {
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "support": "Support"
+    },
+    "required": "*"
+  }
+}

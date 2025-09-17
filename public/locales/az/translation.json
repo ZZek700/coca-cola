@@ -1,0 +1,193 @@
+{
+  "nav": {
+    "home": "Ana Səhifə",
+    "about": "Haqqımızda",
+    "services": "Xidmətlər",
+    "trainers": "Məşqçilər",
+    "membership": "Üzvlük",
+    "contact": "Əlaqə"
+  },
+  "hero": {
+    "title_part1": "CROWN",
+    "title_part2": "WELLNESS CLUB",
+    "tagline_part1": "Azərbaycanda ilk interaktiv fitness",
+    "tagline_part2": "Lüks Sağlamlıq Təcrübəsi",
+    "description_part1": "Bakının mərkəzində 5000m² misilsiz lüks",
+    "description_part2": "Ənənənin innovasiya ilə qovuşduğu yer. Məxfiliyi və rahatlığı təmin etmək üçün nəzərdə tutulmuş qadınlara xüsusi ayrılmış sahələr daxil olmaqla, tam mədəni həssaslıqla premium fitness kəşf edin.",
+    "experience_button": "Crown Təcrübəsi",
+    "tour_button": "Virtual Tur",
+    "scroll_indicator": "LÜKSU KƏŞF EDİN"
+  },
+  "about": {
+    "section_title_part1": "CROWN",
+    "section_title_part2": "FƏRQİ",
+    "section_title_part3": "",
+    "section_description": "Azərbaycan qonaqpərvərliyinin dünya səviyyəli sağlamlıqla qovuşduğu yer. Mükəmməllik tələb edənlər üçün nəzərdə tutulmuş məkanda fitnessin gələcəyini yaşayın.",
+    "redefining_title_part1": "Bakıda Sağlamlığı Yenidən",
+    "redefining_title_part2": "Müəyyənləşdirmək",
+    "redefining_text1": "Crown Wellness Club Azərbaycanda həqiqətən də lüks fitness məkanı kimi fəaliyyət göstərir. Biz güzəştsiz premium təcrübə təqdim edərkən mədəni həssaslığın vacibliyini başa düşürük.",
+    "redefining_text2": "5000m²-lik obyektimiz, beynəlxalq fitness və sağlamlıq texnologiyasının ən son nailiyyətlərini təklif edərkən, yerli dəyərlərə hörmət edən, qadınlar üçün xüsusi məşq sahələri daxil olmaqla, xüsusi sahələrə malikdir.",
+    "cultural_title": "Mədəni Hörmət və Məxfilik",
+    "cultural_description": "Bütün üzvlərimiz üçün rahatlığı və mədəniyyətə hörməti təmin edən tam məxfiliyə malik xüsusi qadın məşq obyektləri.",
+    "feature1_title": "Azərbaycanda İlk",
+    "feature1_description": "Bakının mərkəzində ilk interaktiv fitness, lüks sağlamlıq",
+    "feature2_title": "Premium Standartlar",
+    "feature2_description": "Beynəlxalq keyfiyyət yerli mədəni dəyərlərlə qovuşur",
+    "feature3_title": "Eksklüziv İcma",
+    "feature3_description": "Bakının ən seçkin fitness həvəskarlarına qoşulun",
+    "feature4_title": "Əsas Yerləşmə",
+    "feature4_description": "Maksimum rahatlıq üçün strateji cəhətdən yerləşir"
+  },
+  "services": {
+    "section_title": "PREMIUM",
+    "section_title_highlight": "TƏCRÜBƏLƏRİ",
+    "section_description": "Altı fərqli lüks zona, hər biri Azərbaycanın mədəni dəyərlərinə hörmət edərkən dünya səviyyəli təcrübələr təqdim etmək üçün yaradılıb.",
+    "cultural_banner_title": "Mədəni Mükəmməllik və",
+    "cultural_banner_highlight": "Məxfilik",
+    "cultural_banner_description": "Qadın obyektlərimiz 800m² tam xüsusi sahəni əhatə edir və Azərbaycanın mədəni dəyərlərinə dərin hörmətlə dizayn edilib. Xüsusi qadın məşqçilər, xüsusi soyunub-geyinmə sahələri və yalnız qadınlar üçün sinif cədvəlləri ilə lüksdən güzəştə getmədən rahatlıq və təvazökarlığı təmin edirik.",
+    "fitness_zone": {
+      "title_part1": "Fitness",
+      "title_part2": "Zonası",
+      "subtitle": "5 Premium Studiya",
+      "description": "Hər fitness fəni üçün ayrılmış sahələrlə birlikdə aparıcı beynəlxalq brendlərin ən müasir avadanlıqları."
+    },
+    "spa_zone": {
+      "title_part1": "Spa",
+      "title_part2": "Zonası",
+      "subtitle": "Mükəmməl Bərpa",
+      "description": "Tam canlanma və mədəni rahatlıq üçün nəzərdə tutulmuş sakit mühitdə premium wellness müalicələri."
+    },
+    "beauty_zone": {
+      "title_part1": "Gözəllik",
+      "title_part2": "Zonası",
+      "subtitle": "Estetik Mükəmməllik",
+      "description": "Premium brendlər və ekspert stilistlərlə lüks bitirmələrə malik peşəkar gözəllik xidmətləri."
+    },
+    "womens_zone": {
+      "title_part1": "Qadınlar",
+      "title_part2": "Zonası",
+      "subtitle": "Şəxsi və Eksklüziv",
+      "description": "Qadınların rahatlığı və təvazökarlığı üçün tam məxfilik və mədəni nəzakətlə dizayn edilmiş eksklüziv 800m² sahə."
+    },
+    "fitbar": {
+      "title_part1": "Fitbar",
+      "title_part2": "və Restoran",
+      "subtitle": "Qidalanma Mərkəzi",
+      "description": "Sağlamlıq səyahətinizi dəstəkləmək üçün ekspert tərəfindən hazırlanmış yeməklər və əlavələrlə premium qidalanma mərkəzi."
+    },
+    "wellness_shop": {
+      "title_part1": "Sağlamlıq",
+      "title_part2": "Mağazası",
+      "subtitle": "Premium Pərakəndə",
+      "description": "Beynəlxalq lüks brendlərdən premium sağlamlıq və fitness məhsullarının seçilmiş kolleksiyası."
+    },
+    "book_experience": "Təcrübəni Sifariş Et",
+    "learn_more": "Daha Ətraflı",
+    "featured_amenities": "Xüsusi İmkanlar"
+  },
+  "membership": {
+    "section_title": "ÜZVLÜYÜ",
+    "section_title_highlight": "MÜKƏMMƏLLİYİ",
+    "section_description": "Lüks sağlamlığa gedən yolunuzu seçin. Hər üzvlük Azərbaycanın premier təyinatında müstəsna dəyər və eksklüziv təcrübələr təqdim etmək üçün hazırlanıb.",
+    "founding_offer": "Təsisçi Üzvlər: İlk 6 Ay üçün 25%-ə qədər ENDİRİM",
+    "essential": {
+      "name": "Əsas",
+      "subtitle": "Mükəmməl Əsas",
+      "price": "₼299",
+      "original_price": "₼399",
+      "savings": "25% ENDİRİM",
+      "description": "Azərbaycanın ən eksklüziv klubunda sağlamlıq səyahətiniz üçün premium əsas"
+    },
+    "premium": {
+      "name": "Premium",
+      "subtitle": "Ən Çox Seçilən",
+      "price": "₼599",
+      "original_price": "₼799",
+      "savings": "25% ENDİRİM",
+      "description": "Premium imkanlar və ekspert rəhbərliyi ilə tam lüks sağlamlıq təcrübəsi"
+    },
+    "royal": {
+      "name": "Royal",
+      "subtitle": "Mükəmməl Lüks",
+      "price": "₼999",
+      "original_price": "₼1299",
+      "savings": "23% ENDİRİM",
+      "description": "Eksklüziv imtiyazlar və VIP rəftarla lüks sağlamlığın zirvəsi"
+    },
+    "womens": {
+      "name": "Qadın Ziyarətgahı",
+      "subtitle": "Məxfilik və Mədəni Hörmət",
+      "price": "₼699",
+      "original_price": "₼899",
+      "savings": "22% ENDİRİM",
+      "description": "Tam məxfilik, mədəni həssaslıq və lüks imkanlarla yalnız qadınlar üçün nəzərdə tutulub"
+    },
+    "choose_plan": "Seç",
+    "selected_proceed": "Seçilib - Davam et",
+    "guarantee_title": "Təsisçi Üzv",
+    "guarantee_highlight": "Eksklüziv Faydaları",
+    "guarantee_text": "Azərbaycanda ilk interaktiv fitness lüks sağlamlıq klubunun təsisçi üzvü kimi qoşulun və eksklüziv faydalardan, prioritet girişdən və Crown mükəmməlliyini yaşayanların arasında olmaq prestijindən yararlanın.",
+    "claim_status": "Təsisçi Üzv Statusunu Əldə Et",
+    "most_popular": "ƏN POPULYAR",
+    "culturally_designed": "MƏDƏNİ DİZAYN",
+    "vip_experience": "VIP TƏCRÜBƏSİ"
+  },
+  "statistics": {
+    "section_title": "HEYRƏTVERİCİ",
+    "section_title_highlight": "MİQYAS",
+    "section_description": "Azərbaycanda ilk interaktiv fitness lüks sağlamlıq klubu dünya səviyyəli obyektlər və mədəni mükəmməllik ilə görünməmiş standartlar müəyyən edir.",
+    "space_label": "Premium Sahə",
+    "space_description": "Lüks sağlamlıq obyekti",
+    "equipment_label": "Premium Avadanlıq",
+    "equipment_description": "Beynəlxalq brendlər",
+    "trainers_label": "Ekspert Mütəxəssislər",
+    "trainers_description": "Sertifikatlı mütəxəssislər",
+    "services_label": "Lüks Xidmətlər",
+    "services_description": "Hərtərəfli sağlamlıq",
+    "achievement_title": "Azərbaycanda ilk interaktiv fitness",
+    "achievement_highlight": "",
+    "achievement_subtitle": "Lüks Sağlamlıq Məkanı",
+    "achievement_description": "Bakıda misilsiz lüks, mədəni həssaslıq və dünya səviyyəli imkanlarla premium fitness və sağlamlığın gələcəyinə öncülük edir. Həm beynəlxalq mükəmməlliyi, həm də yerli dəyərləri hörmətlə qarşılayan yeni standartlar təyin edir."
+  },
+  "contact": {
+    "section_title": "ƏLAQƏ",
+    "section_title_highlight": "SAXLAYIN",
+    "section_description": "Lüks sağlamlıq səyahətinizə başlamağa hazırsınız? Bu gün bizimlə əlaqə saxlayın və Crown Wellness Club-un Azərbaycanın premier təyinatını nə edən kəşf edin.",
+    "contact_info": "Əlaqə Məlumatları",
+    "visit_title": "Bizə Baş Çəkin",
+    "call_title": "Bizə Zəng Edin",
+    "email_title": "Bizə E-mail Göndərin",
+    "hours_title": "İş Saatları",
+    "visit_details": ["Bakı, Azərbaycan", "Premium Yerləşmə", "Asan Parkinq"],
+    "call_details": ["+994 XX XXX XX XX", "Səhər 6:00-dan axşam 23:00-dək", "Həftənin 7 günü"],
+    "email_details": ["info@crownwellness.az", "Sürətli Cavab", "Peşəkar Dəstək"],
+    "hours_details": ["Bazar ertəsi-Bazar: 6:00 - 23:00", "Bayram günləri: 8:00 - 20:00", "Həmişə sizin üçün buradayıq"],
+    "follow_journey": "Bizim Səyahətimizi İzləyin",
+    "social_description": "Ən son tədbirlərimiz, dərslərimiz və sağlamlıq məsləhətlərimizlə yenilənin.",
+    "form_title": "Səyahətinizə Başlayın",
+    "full_name": "Ad və Soyad",
+    "full_name_placeholder": "Adınızı və soyadınızı daxil edin",
+    "email_address": "E-mail Ünvanı",
+    "email_placeholder": "sizin.email@example.com",
+    "phone_number": "Telefon Nömrəsi",
+    "phone_placeholder": "+994 XX XXX XX XX",
+    "interested_in": "Maraq Göstərdiyiniz",
+    "select_membership": "Üzvlük seçin",
+    "essential_option": "Əsas",
+    "premium_option": "Premium",
+    "royal_option": "Royal",
+    "womens_option": "Qadın Eksklüzivi",
+    "tour_option": "Sadəcə tur",
+    "message": "Mesaj",
+    "message_placeholder": "Fitness məqsədləriniz haqqında və ya hər hansı suallarınız varsa bizə deyin...",
+    "send_message": "Mesaj Göndər",
+    "privacy_notice": "Məxfiliyinizə hörmət edirik və heç vaxt məlumatlarınızı paylaşmırıq. 24 saat ərzində cavab gözləyin.",
+    "footer_text": "© 2025 Crown Wellness Club. Bütün hüquqlar qorunur. Azərbaycanda ilk interaktiv fitness lüks sağlamlıq məkanı.",
+    "footer_links": {
+      "privacy": "Məxfilik",
+      "terms": "Şərtlər",
+      "support": "Dəstək"
+    },
+    "required": "*"
+  }
+}
