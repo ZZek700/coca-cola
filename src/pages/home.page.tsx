@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import VideoHero from '../home-sections/VideoHero';
+import VideoHero from '../home-sections/Hero';
 import Interactive3DServices from '../home-sections/Interactive3DServices';
 import Premium3DMembership from '../home-sections/Premium3DMembership';
 import AnimatedStatistics from '../home-sections/AnimatedStatistics';
