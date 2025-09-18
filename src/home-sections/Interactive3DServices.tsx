@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-import { Dumbbell, Heart, Scissors, Coffee, ShoppingBag, Users2, Play, ChevronRight, Sparkles } from 'lucide-react';
+import { Dumbbell, Heart, Scissors, Coffee, ShoppingBag, Users2, Play, ChevronRight, Sparkles, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../components/Logo';
 
 const Interactive3DServices = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeService, setActiveService] = useState<number | null>(null);
-  const [expandedService, setExpandedService] = useState<number | null>(null);
+  const [selectedService, setSelectedService] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
@@ -116,15 +117,36 @@ const Interactive3DServices = () => {
   ];
 
   const handleServiceClick = (index: number) => {
-    if (expandedService === index) {
-      setExpandedService(null);
-    } else {
-      setExpandedService(index);
-    }
+    setSelectedService(index);
   };
 
+  const closeModal = () => {
+    setSelectedService(null);
+  };
+
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    };
+
+    if (selectedService !== null) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedService]);
+
   return (
-    <section id='services' ref={sectionRef} className='py-24 bg-crown-dark'>
+    <section id='services' ref={sectionRef} className='relative py-24 bg-crown-dark overflow-hidden'>
       {/* Premium Background Effects */}
       <div className='absolute inset-0'>
         <div className='absolute top-1/4 left-1/4 w-96 h-96 bg-crown-dark-red/5 rounded-full blur-3xl animate-pulse-slow'></div>
@@ -134,10 +156,11 @@ const Interactive3DServices = () => {
 
       <div className='container mx-auto px-6 relative z-10'>
         {/* Premium Section Header */}
-        <div
-          className={`text-center mb-20 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className='text-center mb-20'
         >
           <div className='flex items-center justify-center mb-8'>
             <div className='w-20 h-0.5 bg-gradient-to-r from-transparent to-crown-primary'></div>
@@ -151,148 +174,100 @@ const Interactive3DServices = () => {
           <p className='text-lg sm:text-xl md:text-2xl text-crown-white max-w-4xl mx-auto leading-relaxed font-light px-4'>
             {t('services.section_description')}
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3D Interactive Services Grid */}
-        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4'>
+        {/* Services Grid */}
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4'>
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`group relative transition-all duration-1000 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+              }}
+              className='group relative'
             >
               {/* Featured Badge for Women's Zone */}
               {service.featured && (
                 <div className='absolute -top-4 left-6 z-30'>
-                  <div className='bg-crown-primary text-crown-white px-4 py-2 rounded-full text-sm font-bold shadow-lg items-center flex gap-2'>
+                  <div className='bg-crown-primary text-crown-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2'>
                     <Logo variant='white' size='22px' className='mb-1' />
                     CULTURALLY DESIGNED
                   </div>
                 </div>
               )}
 
-              {/* 3D Service Card */}
+              {/* Service Card */}
               <div
-                className={`relative h-full cursor-pointer transition-all duration-700 transform-gpu ${
-                  expandedService === index
-                    ? '' // Genişlediğinde ölçekleme ve z-index kaldırıldı
-                    : 'hover:scale-105 hover:z-10'
-                }`}
+                className='relative h-full cursor-pointer bg-crown-white backdrop-blur-xl border-2 border-gray-700 hover:border-crown-dark-red/30 rounded-3xl overflow-hidden shadow-xl transition-all duration-300 hover:scale-105'
                 onClick={() => handleServiceClick(index)}
                 onMouseEnter={() => setActiveService(index)}
                 onMouseLeave={() => setActiveService(null)}
               >
-                {/* Main Card */}
-                <div
-                  className={`relative h-full bg-crown-white backdrop-blur-xl border-2 rounded-3xl overflow-hidden transition-all duration-700 shadow-xl ${
-                    expandedService === index
-                      ? `border-crown-dark-red shadow-2xl shadow-crown-dark-red/20`
-                      : 'border-gray-700 hover:border-crown-dark-red/30'
-                  }`}
-                >
-                  {/* Video/Image Placeholder */}
-                  <div className={`relative h-48 sm:h-56 md:h-64 bg-gradient-to-br ${service.color} overflow-hidden`}>
-                    <div className='absolute inset-0 bg-crown-dark/30'></div>
+                {/* Service Image */}
+                <div className={`relative h-48 sm:h-56 md:h-64 bg-gradient-to-br ${service.color} overflow-hidden`}>
+                  <div className='absolute inset-0 bg-crown-dark/30'></div>
+                  <img
+                    src={service.imageSrc}
+                    alt={`${service.titlePart1} ${service.titlePart2} - ${service.subtitle}`}
+                    className='w-full h-full object-cover'
+                  />
 
-                    {/* Zone Image */}
-                    <img
-                      src={service.imageSrc}
-                      alt={`${service.titlePart1} ${service.titlePart2} - ${service.subtitle}`}
-                      className='w-full h-full object-cover absolute inset-0'
-                    />
-
-                    {/* Play Button Overlay */}
-                    <div
-                      className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
-                        activeService === index ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    >
-                      <div className='w-20 h-20 bg-crown-dark/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-crown-white/30'>
-                        <Play className='w-8 h-8 text-crown-white ml-1' />
-                      </div>
+                  {/* Play Button Overlay */}
+                  <div
+                    className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
+                      activeService === index ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <div className='w-20 h-20 bg-crown-dark/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-crown-white/30'>
+                      <Play className='w-8 h-8 text-crown-white ml-1' />
                     </div>
-
-                    {/* Gradient Overlay */}
-                    <div className='absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-crown-dark/80 to-transparent'></div>
                   </div>
 
-                  {/* Card Content */}
-                  <div className='p-4 sm:p-6 md:p-8 bg-gray-800 flex flex-col h-full'>
-                    <div className='flex items-center justify-between mb-4'>
-                      <div className='flex-1'>
-                        <h3 className='text-lg sm:text-xl md:text-2xl font-bold mb-2'>
-                          <span className='text-crown-primary'>{service.titlePart1}</span>{' '}
-                          <span className='text-crown-white'>{service.titlePart2}</span>
-                        </h3>
-                        <p className='text-crown-primary text-xs sm:text-sm'>{service.subtitle}</p>
-                      </div>
-                      <ChevronRight
-                        className={`w-5 h-5 sm:w-6 sm:h-6 text-crown-primary transition-transform duration-300 flex-shrink-0 ${
-                          expandedService === index ? 'rotate-90' : ''
-                        }`}
-                      />
+                  <div className='absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-crown-dark/80 to-transparent'></div>
+                </div>
+
+                {/* Card Content */}
+                <div className='p-4 sm:p-6 md:p-8 bg-gray-800 flex flex-col h-full'>
+                  <div className='flex items-center justify-between mb-4'>
+                    <div className='flex-1'>
+                      <h3 className='text-lg sm:text-xl md:text-2xl font-bold mb-2'>
+                        <span className='text-crown-primary'>{service.titlePart1}</span>{' '}
+                        <span className='text-crown-white'>{service.titlePart2}</span>
+                      </h3>
+                      <p className='text-crown-primary text-xs sm:text-sm'>{service.subtitle}</p>
                     </div>
+                    <ChevronRight className='w-5 h-5 sm:w-6 sm:h-6 text-crown-primary transition-transform duration-300 flex-shrink-0' />
+                  </div>
 
-                    {/* Flexible content area */}
-                    <div className='flex-grow flex flex-col'>
-                      <p className='text-crown-white leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base'>
-                        {service.description}
-                      </p>
+                  <div className='flex-grow flex flex-col'>
+                    <p className='text-crown-white leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base'>
+                      {service.description}
+                    </p>
 
-                      {/* Stats */}
-                      <div className='flex justify-between mb-4 sm:mb-6 text-center'>
-                        {Object.entries(service.stats).map(([key, value], statIndex) => (
-                          <div key={statIndex} className='flex-1'>
-                            <div className='text-crown-primary font-bold text-lg sm:text-xl'>{value}</div>
-                            <div className='text-crown-white text-xs uppercase tracking-wider'>{key}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Expandable Features */}
-                      <div
-                        className={`transition-all duration-700 overflow-hidden ${
-                          expandedService === index ? 'max-h-96 opacity-100 mb-6' : 'max-h-0 opacity-0'
-                        }`}
-                      >
-                        <div className='border-t border-gray-600 pt-6'>
-                          <h4 className='text-crown-primary font-semibold mb-4 flex items-center'>
-                            <Sparkles className='w-4 h-4 mr-2' />
-                            {t('services.featured_amenities')}
-                          </h4>
-                          <div className='grid grid-cols-1 gap-3'>
-                            {service.features.map((feature, featureIndex) => (
-                              <div key={featureIndex} className='flex items-center text-crown-white text-sm'>
-                                <div className='w-2 h-2 bg-gradient-to-r from-crown-primary to-crown-primary rounded-full mr-3'></div>
-                                {feature}
-                              </div>
-                            ))}
-                          </div>
+                    {/* Stats */}
+                    <div className='flex justify-between mb-4 sm:mb-6 text-center'>
+                      {Object.entries(service.stats).map(([key, value], statIndex) => (
+                        <div key={statIndex} className='flex-1'>
+                          <div className='text-crown-primary font-bold text-lg sm:text-xl'>{value}</div>
+                          <div className='text-crown-white text-xs uppercase tracking-wider'>{key}</div>
                         </div>
-                      </div>
+                      ))}
                     </div>
 
                     {/* Action Button */}
-                    <button
-                      className={`w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold transition-all duration-500 text-sm sm:text-base ${
-                        expandedService === index
-                          ? 'bg-crown-primary text-crown-white shadow-lg transform scale-105 hover:bg-crown-primary'
-                          : 'bg-crown-primary text-crown-white hover:bg-crown-primary'
-                      }`}
-                    >
-                      {expandedService === index ? t('services.book_experience') : t('services.learn_more')}
+                    <button className='w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold transition-all duration-500 text-sm sm:text-base bg-crown-primary text-crown-white hover:bg-crown-primary'>
+                      {t('services.learn_more')}
                     </button>
                   </div>
-
-                  {/* Glow Effect */}
-                  <div
-                    className={`absolute -inset-1 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-20 rounded-3xl blur-xl transition-opacity duration-700 -z-10`}
-                  ></div>
                 </div>
+
+                {/* Glow Effect */}
+                <div className='absolute -inset-1 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-20 rounded-3xl blur-xl transition-opacity duration-700 -z-10'></div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -316,6 +291,106 @@ const Interactive3DServices = () => {
           </div>
         </div>
       </div>
+
+      {/* Service Modal */}
+      <AnimatePresence>
+        {selectedService !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4'
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 50 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className='bg-crown-dark border-2 border-crown-primary rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto'
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className='absolute top-6 right-6 z-10 p-2 rounded-full bg-crown-dark/80 text-crown-white hover:bg-crown-primary transition-all duration-300'
+              >
+                <X className='w-6 h-6' />
+              </button>
+
+              {/* Modal Content */}
+              <div className='relative'>
+                {/* Service Image */}
+                <div
+                  className={`relative h-64 bg-gradient-to-br ${services[selectedService].color} overflow-hidden rounded-t-3xl`}
+                >
+                  <div className='absolute inset-0 bg-crown-dark/30'></div>
+                  <img
+                    src={services[selectedService].imageSrc}
+                    alt={`${services[selectedService].titlePart1} ${services[selectedService].titlePart2}`}
+                    className='w-full h-full object-cover'
+                  />
+                  <div className='absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-crown-dark/80 to-transparent'></div>
+                </div>
+
+                {/* Modal Body */}
+                <div className='p-8'>
+                  <div className='mb-6'>
+                    <h2 className='text-3xl md:text-4xl font-bold mb-3'>
+                      <span className='text-crown-primary'>{services[selectedService].titlePart1}</span>{' '}
+                      <span className='text-crown-white'>{services[selectedService].titlePart2}</span>
+                    </h2>
+                    <p className='text-crown-primary text-lg'>{services[selectedService].subtitle}</p>
+                  </div>
+
+                  <p className='text-crown-white leading-relaxed mb-8 text-lg'>
+                    {services[selectedService].description}
+                  </p>
+
+                  {/* Stats */}
+                  <div className='grid grid-cols-3 gap-6 mb-8'>
+                    {Object.entries(services[selectedService].stats).map(([key, value], statIndex) => (
+                      <div
+                        key={statIndex}
+                        className='text-center bg-crown-primary/10 rounded-xl p-4 border border-crown-primary/20'
+                      >
+                        <div className='text-crown-primary font-bold text-2xl'>{value}</div>
+                        <div className='text-crown-white text-sm uppercase tracking-wider'>{key}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Features */}
+                  <div className='mb-8'>
+                    <h4 className='text-crown-primary font-semibold mb-6 flex items-center text-xl'>
+                      <Sparkles className='w-5 h-5 mr-2' />
+                      Featured Amenities
+                    </h4>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                      {services[selectedService].features.map((feature: string, featureIndex: number) => (
+                        <div key={featureIndex} className='flex items-center text-crown-white'>
+                          <div className='w-3 h-3 bg-gradient-to-r from-crown-primary to-crown-primary rounded-full mr-4'></div>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Modal Action Buttons */}
+                  <div className='flex flex-col sm:flex-row gap-4'>
+                    <button className='flex-1 py-4 px-6 rounded-xl font-semibold bg-crown-primary text-crown-white hover:bg-crown-primary/90 transition-all duration-300'>
+                      {t('services.book_experience')}
+                    </button>
+                    <button className='flex-1 py-4 px-6 rounded-xl font-semibold bg-transparent border-2 border-crown-primary text-crown-primary hover:bg-crown-primary hover:text-crown-white transition-all duration-300'>
+                      More Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

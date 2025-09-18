@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Sparkles, Volume2, VolumeX } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import HeroScrollIndicator from '../components/HeroScrollIndicator';
 import HeroCTA from '../components/HeroCTA';
 import HeroMain from '../components/hero-main';

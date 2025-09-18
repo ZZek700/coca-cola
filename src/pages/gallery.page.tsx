@@ -1,9 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import Logo from '../components/Logo';
 
 export default function GalleryPage() {
-  const { t } = useTranslation();
-
   return (
     <div className='min-h-screen bg-crown-dark text-crown-white'>
       {/* Hero Section */}

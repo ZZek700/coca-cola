@@ -1,10 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import Logo from '../components/Logo';
 import { Users, Award, Star, Clock } from 'lucide-react';
 
 export default function TrainersPage() {
-  const { t } = useTranslation();
-
   return (
     <div className='min-h-screen bg-crown-dark text-crown-white'>
       {/* Hero Section */}
