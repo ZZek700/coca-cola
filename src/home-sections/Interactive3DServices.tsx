@@ -299,7 +299,7 @@ const Interactive3DServices = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4'
+            className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-start sm:items-center justify-center p-2 sm:p-4'
             onClick={closeModal}
           >
             <motion.div
@@ -307,22 +307,22 @@ const Interactive3DServices = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 50 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className='bg-crown-dark border-2 border-crown-primary rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto'
+              className='bg-crown-dark border-2 border-crown-primary rounded-2xl sm:rounded-3xl w-full max-w-[95vw] sm:max-w-2xl lg:max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto overflow-x-hidden mt-4 sm:mt-0'
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className='absolute top-6 right-6 z-10 p-2 rounded-full bg-crown-dark/80 text-crown-white hover:bg-crown-primary transition-all duration-300'
+                className='absolute top-3 right-3 sm:top-6 sm:right-6 z-10 p-2 rounded-full bg-crown-dark/80 text-crown-white hover:bg-crown-primary transition-all duration-300'
               >
-                <X className='w-6 h-6' />
+                <X className='w-5 h-5 sm:w-6 sm:h-6' />
               </button>
 
               {/* Modal Content */}
               <div className='relative'>
                 {/* Service Image */}
                 <div
-                  className={`relative h-64 bg-gradient-to-br ${services[selectedService].color} overflow-hidden rounded-t-3xl`}
+                  className={`relative h-48 sm:h-56 lg:h-64 bg-gradient-to-br ${services[selectedService].color} overflow-hidden rounded-t-2xl sm:rounded-t-3xl`}
                 >
                   <div className='absolute inset-0 bg-crown-dark/30'></div>
                   <img
@@ -334,42 +334,42 @@ const Interactive3DServices = () => {
                 </div>
 
                 {/* Modal Body */}
-                <div className='p-8'>
-                  <div className='mb-6'>
-                    <h2 className='text-3xl md:text-4xl font-bold mb-3'>
+                <div className='p-4 sm:p-6 lg:p-8'>
+                  <div className='mb-4 sm:mb-6'>
+                    <h2 className='text-2xl sm:text-3xl lg:text-4xl font-bold mb-3'>
                       <span className='text-crown-primary'>{services[selectedService].titlePart1}</span>{' '}
                       <span className='text-crown-white'>{services[selectedService].titlePart2}</span>
                     </h2>
-                    <p className='text-crown-primary text-lg'>{services[selectedService].subtitle}</p>
+                    <p className='text-crown-primary text-base sm:text-lg'>{services[selectedService].subtitle}</p>
                   </div>
 
-                  <p className='text-crown-white leading-relaxed mb-8 text-lg'>
+                  <p className='text-crown-white leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg'>
                     {services[selectedService].description}
                   </p>
 
                   {/* Stats */}
-                  <div className='grid grid-cols-3 gap-6 mb-8'>
+                  <div className='grid grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-8'>
                     {Object.entries(services[selectedService].stats).map(([key, value], statIndex) => (
                       <div
                         key={statIndex}
-                        className='text-center bg-crown-primary/10 rounded-xl p-4 border border-crown-primary/20'
+                        className='text-center bg-crown-primary/10 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-crown-primary/20'
                       >
-                        <div className='text-crown-primary font-bold text-2xl'>{value}</div>
-                        <div className='text-crown-white text-sm uppercase tracking-wider'>{key}</div>
+                        <div className='text-crown-primary font-bold text-lg sm:text-xl lg:text-2xl'>{value}</div>
+                        <div className='text-crown-white text-xs sm:text-sm uppercase tracking-wider'>{key}</div>
                       </div>
                     ))}
                   </div>
 
                   {/* Features */}
-                  <div className='mb-8'>
-                    <h4 className='text-crown-primary font-semibold mb-6 flex items-center text-xl'>
-                      <Sparkles className='w-5 h-5 mr-2' />
+                  <div className='mb-6 sm:mb-8'>
+                    <h4 className='text-crown-primary font-semibold mb-4 sm:mb-6 flex items-center text-lg sm:text-xl'>
+                      <Sparkles className='w-4 h-4 sm:w-5 sm:h-5 mr-2' />
                       Featured Amenities
                     </h4>
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                    <div className='grid grid-cols-1 gap-3 sm:gap-4'>
                       {services[selectedService].features.map((feature: string, featureIndex: number) => (
-                        <div key={featureIndex} className='flex items-center text-crown-white'>
-                          <div className='w-3 h-3 bg-gradient-to-r from-crown-primary to-crown-primary rounded-full mr-4'></div>
+                        <div key={featureIndex} className='flex items-center text-crown-white text-sm sm:text-base'>
+                          <div className='w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-crown-primary to-crown-primary rounded-full mr-3 sm:mr-4 flex-shrink-0'></div>
                           {feature}
                         </div>
                       ))}
@@ -377,11 +377,11 @@ const Interactive3DServices = () => {
                   </div>
 
                   {/* Modal Action Buttons */}
-                  <div className='flex flex-col sm:flex-row gap-4'>
-                    <button className='flex-1 py-4 px-6 rounded-xl font-semibold bg-crown-primary text-crown-white hover:bg-crown-primary/90 transition-all duration-300'>
+                  <div className='flex flex-col gap-3 sm:gap-4'>
+                    <button className='w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold bg-crown-primary text-crown-white hover:bg-crown-primary/90 transition-all duration-300 text-sm sm:text-base'>
                       {t('services.book_experience')}
                     </button>
-                    <button className='flex-1 py-4 px-6 rounded-xl font-semibold bg-transparent border-2 border-crown-primary text-crown-primary hover:bg-crown-primary hover:text-crown-white transition-all duration-300'>
+                    <button className='w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold bg-transparent border-2 border-crown-primary text-crown-primary hover:bg-crown-primary hover:text-crown-white transition-all duration-300 text-sm sm:text-base'>
                       More Details
                     </button>
                   </div>

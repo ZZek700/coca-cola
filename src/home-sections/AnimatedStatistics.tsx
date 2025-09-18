@@ -115,8 +115,8 @@ const AnimatedStatistics = () => {
     <section ref={sectionRef} className='py-24 bg-crown-dark relative overflow-hidden'>
       {/* Premium Background Pattern */}
       <div className='absolute inset-0'>
-        <div className='absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-crown-dark-red/5 rounded-full blur-2xl animate-pulse-slow'></div>
-        <div className='absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-crown-complementary/5 rounded-full blur-2xl animate-pulse-slow'></div>
+        <div className='absolute top-1/4 left-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] lg:w-[600px] lg:h-[600px] bg-crown-dark-red/5 rounded-full blur-2xl animate-pulse-slow'></div>
+        <div className='absolute bottom-1/4 right-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] lg:w-[600px] lg:h-[600px] bg-crown-complementary/5 rounded-full blur-2xl animate-pulse-slow'></div>
         <div className='absolute inset-0 bg-gradient-to-from-crown-dark/50  via-transparent to-black/30'></div>
       </div>
 

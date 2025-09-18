@@ -172,7 +172,7 @@ const Premium3DMembership = () => {
       <div className='absolute inset-0'>
         <div className='absolute top-1/4 left-1/6 w-96 h-96 bg-crown-dark-red/5 rounded-full blur-3xl animate-pulse-slow'></div>
         <div className='absolute bottom-1/4 right-1/6 w-96 h-96 bg-crown-complementary/5 rounded-full blur-3xl animate-pulse-slow'></div>
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-crown-dark-red/3 to-transparent rounded-full'></div>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] lg:w-[800px] lg:h-[800px] bg-gradient-radial from-crown-dark-red/3 to-transparent rounded-full'></div>
       </div>
 
       <div className='container mx-auto px-6 relative z-10'>

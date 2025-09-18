@@ -5,17 +5,40 @@
 /* Global responsive fixes */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent any element from causing overflow */
+* {
   max-width: 100%;
 }
 
-* {
-  box-sizing: border-box;
+/* Root container fixes */
+#root {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
 }
 
 /* Ensure all sections are visible on mobile */
 section {
   min-height: auto;
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* Container fixes */
+.container {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 /* Mobile-first responsive text scaling */
@@ -23,12 +46,24 @@ section {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
+    max-width: 100vw !important;
+  }
+
+  /* Force all elements to respect viewport width */
+  * {
+    max-width: 100vw !important;
   }
 }
 
 /* Prevent horizontal scroll */
 .overflow-x-hidden {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+}
+
+/* Force grid containers to not overflow */
+.grid {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 /* Ensure proper spacing on mobile */
@@ -41,5 +76,16 @@ section {
   .py-20 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+  }
+
+  /* Mobile padding adjustments */
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
 }
