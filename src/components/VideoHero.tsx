@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Play, ChevronDown, Crown, Sparkles, Volume2, VolumeX } from 'lucide-react';
+import { Play, ChevronDown, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
-import { useNavigate } from 'react-router-dom';
 
 interface VideoHeroProps {
   isMuted: boolean;
@@ -12,7 +11,6 @@ interface VideoHeroProps {
 const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -31,10 +29,6 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
     // useEffect tarafından veya doğrudan video elementindeki muted={isMuted}
     // attribute'u tarafından güncellenecektir.
     onToggleMute(!isMuted);
-  };
-
-  const handleGoGallery = () => {
-    navigate('/gallery');
   };
 
   const handleBookTour = () => {

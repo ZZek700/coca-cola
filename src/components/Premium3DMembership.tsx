@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Crown, Star, Diamond, Gem, Check, Sparkles, Users2, Award } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Star, Diamond, Check, Sparkles, Users2, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 

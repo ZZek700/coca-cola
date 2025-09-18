@@ -1,14 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import VideoHero from '../components/VideoHero';
-import About from '../components/About';
 import Interactive3DServices from '../components/Interactive3DServices';
 import Premium3DMembership from '../components/Premium3DMembership';
 import AnimatedStatistics from '../components/AnimatedStatistics';
 import Contact from '../components/Contact';
-import '../styles/animations.css';
 import SplashScreen from '../components/SplashScreen';
-
+import '../styles/animations.css';
 
 export default function HomePage() {
   // Check if user has seen splash screen in this session
@@ -22,7 +20,7 @@ export default function HomePage() {
     // Mark splash as seen in session storage
     sessionStorage.setItem('hasSeenSplash', 'true');
   };
-  
+
   const handleToggleMute = (muted: boolean) => {
     setVideoMuted(muted); // VideoHero'dan gelen mute durumunu güncelle
   };
@@ -34,13 +32,13 @@ export default function HomePage() {
       if (hash) {
         const targetId = hash.substring(1); // Remove '#' from hash
         const targetElement = document.getElementById(targetId);
-        
+
         if (targetElement) {
           // Small delay to ensure page is fully rendered
           setTimeout(() => {
             targetElement.scrollIntoView({
               behavior: 'smooth',
-              block: 'start'
+              block: 'start',
             });
           }, 100);
         }
@@ -56,24 +54,26 @@ export default function HomePage() {
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    
+
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-  
-   return (
-     <>
-      {showSplash ? <SplashScreen onEnter={handleEnter} /> : (
-    <div className="min-h-screen bg-crown-dark text-crown-primary overflow-x-hidden w-full">
-      <Header />
-      <VideoHero isMuted={videoMuted} onToggleMute={handleToggleMute} />
-      <Interactive3DServices />
-      <AnimatedStatistics />
-      <Premium3DMembership />
-      <Contact />
-    </div>
-       )}
-     </>
+
+  return (
+    <>
+      {showSplash ? (
+        <SplashScreen onEnter={handleEnter} />
+      ) : (
+        <div className='min-h-screen bg-crown-dark text-crown-primary overflow-x-hidden w-full'>
+          <Header />
+          <VideoHero isMuted={videoMuted} onToggleMute={handleToggleMute} />
+          <Interactive3DServices />
+          <AnimatedStatistics />
+          <Premium3DMembership />
+          <Contact />
+        </div>
+      )}
+    </>
   );
 }

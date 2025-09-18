@@ -1,11 +1,8 @@
-
-import "./styles/animations.css";
-import AppRouter from "./router";
+import './styles/animations.css';
+import AppRouter from './router';
 
 function App() {
-  return (
-    <AppRouter />
-  );
+  return <AppRouter />;
 }
 
 export default App;

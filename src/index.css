@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 /* Global responsive fixes */
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100%;
 }
@@ -36,7 +37,7 @@ section {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-  
+
   .py-20 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;

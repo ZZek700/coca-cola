@@ -1,17 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import {
-  Dumbbell,
-  Heart,
-  Scissors,
-  Coffee,
-  ShoppingBag,
-  Users2,
-  Play,
-  X,
-  ChevronRight,
-  Sparkles,
-  Crown,
-} from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Dumbbell, Heart, Scissors, Coffee, ShoppingBag, Users2, Play, ChevronRight, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 
