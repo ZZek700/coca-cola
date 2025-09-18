@@ -167,7 +167,7 @@ const Premium3DMembership = () => {
   };
 
   return (
-    <section id='membership' ref={sectionRef} className='py-24 bg-crown-dark'>
+    <section id='membership' ref={sectionRef} className='py-24 bg-crown-dark relative'>
       {/* Premium Background Effects */}
       <div className='absolute inset-0'>
         <div className='absolute top-1/4 left-1/6 w-96 h-96 bg-crown-dark-red/5 rounded-full blur-3xl animate-pulse-slow'></div>
