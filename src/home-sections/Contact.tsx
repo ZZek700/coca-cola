@@ -114,24 +114,26 @@ const Contact = () => {
 
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12'>
               {contactInfo.map((info, index) => (
-                <div key={index} className='group'>
-                  <div className='bg-gray-800 border border-gray-700 rounded-xl p-4 sm:p-6 hover:bg-gray-700 hover:border-crown-dark-red/30 transition-all duration-300 group-hover:transform group-hover:scale-105 shadow-lg'>
-                    <div className='flex items-start space-x-3 sm:space-x-4'>
+                <div key={index} className='group h-full'>
+                  <div className='bg-gray-800 border border-gray-700 rounded-xl p-4 sm:p-6 hover:bg-gray-700 hover:border-crown-dark-red/30 transition-all duration-300 group-hover:transform group-hover:scale-105 shadow-lg h-full'>
+                    <div className='flex items-start space-x-3 sm:space-x-4 h-full'>
                       <div
                         className={`p-2 sm:p-3 bg-crown-primary rounded-lg group-hover:bg-crown-primary transition-colors duration-300 flex-shrink-0`}
                       >
                         <info.icon className='w-5 h-5 sm:w-6 sm:h-6 text-crown-white' />
                       </div>
-                      <div className='flex-1'>
+                      <div className='flex-1 flex flex-col'>
                         <h4 className='text-crown-white font-semibold mb-2 text-sm sm:text-base'>{info.title}</h4>
-                        {info.details.map((detail, detailIndex) => (
-                          <p
-                            key={detailIndex}
-                            className={`text-crown-complementary text-xs sm:text-sm ${detailIndex === 0 ? 'font-medium' : ''}`}
-                          >
-                            {detail}
-                          </p>
-                        ))}
+                        <div className='flex-1'>
+                          {info.details.map((detail, detailIndex) => (
+                            <p
+                              key={detailIndex}
+                              className={`text-crown-complementary text-xs sm:text-sm ${detailIndex === 0 ? 'font-medium' : ''}`}
+                            >
+                              {detail}
+                            </p>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>

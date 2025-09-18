@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Dumbbell, Heart, Scissors, Coffee, ShoppingBag, Users2, Play, ChevronRight, Sparkles } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import Logo from './Logo';
+import Logo from '../components/Logo';
 
 const Interactive3DServices = () => {
   const [isVisible, setIsVisible] = useState(false);

@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import Header from '../components/Header';
-import VideoHero from '../components/VideoHero';
-import Interactive3DServices from '../components/Interactive3DServices';
-import Premium3DMembership from '../components/Premium3DMembership';
-import AnimatedStatistics from '../components/AnimatedStatistics';
-import Contact from '../components/Contact';
+import VideoHero from '../home-sections/VideoHero';
+import Interactive3DServices from '../home-sections/Interactive3DServices';
+import Premium3DMembership from '../home-sections/Premium3DMembership';
+import AnimatedStatistics from '../home-sections/AnimatedStatistics';
+import Contact from '../home-sections/Contact';
 import SplashScreen from '../components/SplashScreen';
 import '../styles/animations.css';
 
@@ -60,20 +59,17 @@ export default function HomePage() {
     };
   }, []);
 
+  if (showSplash) {
+    return <SplashScreen onEnter={handleEnter} />;
+  }
+
   return (
     <>
-      {showSplash ? (
-        <SplashScreen onEnter={handleEnter} />
-      ) : (
-        <div className='min-h-screen bg-crown-dark text-crown-primary overflow-x-hidden w-full'>
-          <Header />
-          <VideoHero isMuted={videoMuted} onToggleMute={handleToggleMute} />
-          <Interactive3DServices />
-          <AnimatedStatistics />
-          <Premium3DMembership />
-          <Contact />
-        </div>
-      )}
+      <VideoHero isMuted={videoMuted} onToggleMute={handleToggleMute} />
+      <Interactive3DServices />
+      <AnimatedStatistics />
+      <Premium3DMembership />
+      <Contact />
     </>
   );
 }

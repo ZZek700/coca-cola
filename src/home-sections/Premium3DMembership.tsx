@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Star, Diamond, Check, Sparkles, Users2, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import Logo from './Logo';
+import Logo from '../components/Logo';
 
 const Premium3DMembership = () => {
   const [isVisible, setIsVisible] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Play, ChevronDown, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import Logo from './Logo';
+import Logo from '../components/Logo';
 
 interface VideoHeroProps {
   isMuted: boolean;
