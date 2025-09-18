@@ -42,7 +42,7 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
     if (contactSection) {
       contactSection.scrollIntoView({
         behavior: 'smooth',
-        block: 'start'
+        block: 'start',
       });
       // Update URL hash
       window.history.pushState(null, '', '#contact');
@@ -50,98 +50,104 @@ const VideoHero: React.FC<VideoHeroProps> = ({ isMuted, onToggleMute }) => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id='home' className='relative min-h-screen flex items-center justify-center overflow-hidden'>
       {/* Video Background */}
-      <div className="absolute inset-0">
+      <div className='absolute inset-0'>
         <video
           ref={videoRef}
           autoPlay
           loop
           muted={isMuted} // Doğrudan isMuted prop'unu kullan
           playsInline
-          className="w-full h-full object-cover"
+          className='w-full h-full object-cover'
         >
-          <source src="https://res.cloudinary.com/doep7sd3t/video/upload/v1757633456/091254_c6vohz.mp4" type="video/mp4" />
+          <source
+            src='https://res.cloudinary.com/doep7sd3t/video/upload/v1757633456/091254_c6vohz.mp4'
+            type='video/mp4'
+          />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-crown-dark/60"></div>
+        <div className='absolute inset-0 bg-crown-dark/60'></div>
       </div>
 
       {/* Mute/Unmute Button */}
       <button
         onClick={toggleMute}
-        className="absolute bottom-8 right-8 z-20 p-3 rounded-full bg-crown-dark/50 text-crown-white hover:bg-crown-primary/70 transition-colors duration-300 backdrop-blur-sm"
+        className='absolute bottom-8 right-8 z-20 p-3 rounded-full bg-crown-dark/50 text-crown-white hover:bg-crown-primary/70 transition-colors duration-300 backdrop-blur-sm'
       >
-        {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />} {/* isMuted prop'una göre ikonu göster */}
+        {isMuted ? <VolumeX className='w-5 h-5' /> : <Volume2 className='w-5 h-5' />}{' '}
+        {/* isMuted prop'una göre ikonu göster */}
       </button>
 
       {/* Floating Luxury Elements */}
-      <div className="absolute top-1/4 left-10 animate-float hidden lg:block opacity-20">
-        <Sparkles className="w-8 h-8 text-crown-primary opacity-60" />
+      <div className='absolute top-1/4 left-10 animate-float hidden lg:block opacity-20'>
+        <Sparkles className='w-8 h-8 text-crown-primary opacity-60' />
       </div>
-      <div className="absolute top-1/3 right-10 animate-float-delayed hidden lg:block opacity-15">
-        <Sparkles className="w-6 h-6 text-crown-primary opacity-40" />
+      <div className='absolute top-1/3 right-10 animate-float-delayed hidden lg:block opacity-15'>
+        <Sparkles className='w-6 h-6 text-crown-primary opacity-40' />
       </div>
 
       {/* Content */}
-      <div className={`relative z-10 text-center px-6 transition-all duration-1500 ${
-        isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}>
+      <div
+        className={`relative z-10 text-center px-6 transition-all duration-1500 ${
+          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+      >
         {/* Main Heading with Animation */}
-        <div className="mb-6 md:mb-8 text-center">
+        <div className='mb-6 md:mb-8 text-center'>
           <img
-            src="/Asset 6.svg"
-            alt="Crown Wellness Club"
-            className="w-auto h-32 sm:h-40 md:h-48 lg:h-64 mx-auto drop-shadow-2xl filter brightness-110 animate-shine"
+            src='/Asset 6.svg'
+            alt='Crown Wellness Club'
+            className='w-auto h-32 sm:h-40 md:h-48 lg:h-64 mx-auto drop-shadow-2xl filter brightness-110 animate-shine'
           />
         </div>
 
         {/* Tagline with Cultural Emphasis */}
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-crown-white mb-4 md:mb-6 font-light tracking-wide px-4">
-          <span className="text-crown-primary font-semibold">{t('hero.tagline_part1')}</span> {t('hero.tagline_part2')}
+        <p className='text-lg sm:text-xl md:text-2xl lg:text-3xl text-crown-white mb-4 md:mb-6 font-light tracking-wide px-4'>
+          <span className='text-crown-primary font-semibold'>{t('hero.tagline_part1')}</span> {t('hero.tagline_part2')}
         </p>
 
-        <p className="text-sm sm:text-base text-crown-white/70 mb-12 md:mb-16 max-w-2xl mx-auto leading-relaxed px-4">
+        <p className='text-sm sm:text-base text-crown-white/70 mb-12 md:mb-16 max-w-2xl mx-auto leading-relaxed px-4'>
           {t('hero.description_part2')}
         </p>
 
         {/* Premium CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8 mb-16 md:mb-20 px-4">
-          <button className="group relative overflow-hidden bg-gradient-to-r from-crown-primary to-crown-primary text-crown-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-base sm:text-lg tracking-wide transition-all duration-500 hover:bg-crown-primary hover:scale-105 hover:shadow-xl hover:shadow-crown-primary/25 w-full sm:w-auto">
-            <span className="relative z-10 flex items-center justify-center">
-              <Logo className="h-4 mr-2" />
+        <div className='flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8 mb-16 md:mb-20 px-4'>
+          <button className='group relative overflow-hidden bg-gradient-to-r from-crown-primary to-crown-primary text-crown-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-base sm:text-lg tracking-wide transition-all duration-500 hover:bg-crown-primary hover:scale-105 hover:shadow-xl hover:shadow-crown-primary/25 w-full sm:w-auto'>
+            <span className='relative z-10 flex items-center justify-center'>
+              <Logo color='white' size='24px' className='mr-2 mt-1' />
               {t('hero.experience_button')}
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className='absolute inset-0 bg-gradient-to-r from-crown-primary to-crown-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
           </button>
-          
-          <button 
+
+          <button
             onClick={handleBookTour}
-            className="group flex items-center justify-center space-x-3 sm:space-x-4 text-crown-white border-2 border-crown-white/40 hover:border-crown-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-semibold text-base sm:text-lg tracking-wide transition-all duration-500 hover:bg-crown-white/10 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
+            className='group flex items-center justify-center space-x-3 sm:space-x-4 text-crown-white border-2 border-crown-white/40 hover:border-crown-primary px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-semibold text-base sm:text-lg tracking-wide transition-all duration-500 hover:bg-crown-white/10 hover:scale-105 backdrop-blur-sm w-full sm:w-auto'
           >
-            <Play className="w-5 h-5 sm:w-6 sm:h-6 group-hover:text-crown-primary transition-colors duration-300" />
-            <span className="group-hover:text-crown-primary transition-colors duration-300">{t('hero.tour_button')}</span>
+            <Play className='w-5 h-5 sm:w-6 sm:h-6 group-hover:text-crown-primary transition-colors duration-300' />
+            <span className='group-hover:text-crown-primary transition-colors duration-300'>
+              {t('hero.tour_button')}
+            </span>
           </button>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute -bottom-8 sm:-bottom-6 md:-bottom-5 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center space-y-3">
-            <span className="text-crown-white text-base tracking-widest font-light">
-              {t('hero.scroll_indicator')}
-            </span>
-            <div className="flex flex-col space-y-1">
-              <ChevronDown className="w-6 h-6 text-crown-white animate-bounce" />
-              <ChevronDown className="w-6 h-6 text-crown-white animate-bounce" />
+        <div className='absolute -bottom-8 sm:-bottom-6 md:-bottom-5 left-1/2 transform -translate-x-1/2'>
+          <div className='flex flex-col items-center space-y-3'>
+            <span className='text-crown-white text-base tracking-widest font-light'>{t('hero.scroll_indicator')}</span>
+            <div className='flex flex-col space-y-1'>
+              <ChevronDown className='w-6 h-6 text-crown-white animate-bounce' />
+              <ChevronDown className='w-6 h-6 text-crown-white animate-bounce' />
             </div>
           </div>
         </div>
       </div>
 
       {/* Premium Decorative Elements */}
-      <div className="absolute top-20 left-20 w-2 h-40 bg-gradient-to-b from-crown-primary to-transparent opacity-30 hidden xl:block"></div>
-      <div className="absolute top-32 right-20 w-2 h-32 bg-gradient-to-b from-crown-primary to-transparent opacity-20 hidden xl:block"></div>
-      <div className="absolute bottom-32 left-32 w-32 h-2 bg-gradient-to-r from-crown-primary to-transparent opacity-25 hidden xl:block"></div>
+      <div className='absolute top-20 left-20 w-2 h-40 bg-gradient-to-b from-crown-primary to-transparent opacity-30 hidden xl:block'></div>
+      <div className='absolute top-32 right-20 w-2 h-32 bg-gradient-to-b from-crown-primary to-transparent opacity-20 hidden xl:block'></div>
+      <div className='absolute bottom-32 left-32 w-32 h-2 bg-gradient-to-r from-crown-primary to-transparent opacity-25 hidden xl:block'></div>
     </section>
   );
 };
